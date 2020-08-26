@@ -41,7 +41,14 @@ export default {
 }
 
 .type {
+  font-size: 26px;
+  font-weight: Regular;
   font-family: 'AliHYAiHei';
   text-align: left;
+  font-weight: 400;
+  text-align: center;
+  color: #ffffff;
+  line-height: 48px;
+  letter-spacing: 1px;
 }
 </style>
