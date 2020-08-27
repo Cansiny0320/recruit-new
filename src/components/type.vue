@@ -2,7 +2,7 @@
 <template>
   <div class="type">
     {{ txt2 }}
-    <audio ref="audio" class="audio" autoplay loop src="../assets/bgm/txtType.mp3"></audio>
+    <audio ref="audio" class="audio" src="../assets/bgm/txtType.mp3"></audio>
   </div>
 </template>
 
@@ -10,27 +10,41 @@
 export default {
   props: {
     typetxt: String,
+    time: Number,
   },
   components: {},
-  data () {
+  data() {
     return {
       txt1: [],
-      txt2: "",
+      txt2: '',
     };
   },
-  mounted () {
+  methods: {
+    /**
+     * @description: 将文字动态展现
+     * @param {string,number} 动态显示的文本 , 每个文本显示的时间间隔
+     * @return {}
+     * @author: 林其星
+     */
+    isString(typetxt, time) {
+      let txt = typetxt.split('');
+      this.$refs.audio.play();
+      let txtplay = setInterval(() => {
+        this.txt1.push(txt.shift());
+        this.txt2 = String(this.txt1).replace(/,/g, '');
+        if (txt == '') {
+          clearInterval(txtplay);
+          this.$refs.audio.pause();
+
+          // console.log("暂停");
+        }
+      }, time);
+    },
+  },
+  mounted() {
     //打字特效
-    let txt = this.typetxt.split("");
-    //this.$refs.audio.play();
-    let txtplay = setInterval(() => {
-      this.txt1.push(txt.shift());
-      this.txt2 = String(this.txt1).replace(/,/g, "");
-      if (txt == "") {
-        clearInterval(txtplay);
-        this.$refs.audio.pause();
-        // console.log("暂停");
-      }
-    }, 100);
+    console.log(this.typetxt);
+    this.isString(this.typetxt, this.time);
   },
 };
 </script>
