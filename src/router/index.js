@@ -5,9 +5,21 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/', //在这里配置路由
-    name: 'home',
+    path: '/',
+    name: 'loading',
     component: () => import('@views/loading'),
+    children: [
+      {
+        path: '',
+        name: 'loading_before',
+        component: () => import('@components/loading_before'),
+      },
+      {
+        path: '/prelude',
+        name: 'prelude',
+        component: () => import('@components/prelude'),
+      },
+    ],
   },
 ];
 
