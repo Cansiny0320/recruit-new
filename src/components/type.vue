@@ -35,8 +35,6 @@ export default {
         if (txt == '') {
           clearInterval(txtplay);
           this.$refs.audio.pause();
-
-          // console.log("暂停");
         }
       }, time);
     },

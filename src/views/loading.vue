@@ -2,6 +2,7 @@
 <template>
   <div class="loading">
     <router-view></router-view>
+    <!--遮幕-->
     <div class="loading_mask"></div>
   </div>
 </template>
@@ -22,6 +23,8 @@ export default {
 .loading {
   width: 750px;
   height: 1205px;
+  overflow: hidden;
+  position: relative;
   background-image: url('../assets/images/loading/Hue_Saturation.png');
   background-size: cover;
   display: flex;
