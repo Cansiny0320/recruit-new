@@ -2,7 +2,12 @@
 <template>
   <div class="type">
     {{ txt2 }}
-    <audio ref="audio" class="audio" src="../assets/bgm/txtType.mp3"></audio>
+    <audio
+      ref="audio"
+      style="display:none;"
+      class="audio"
+      src="../assets/bgm/txtType.mp3"
+    ></audio>
   </div>
 </template>
 
@@ -42,7 +47,9 @@ export default {
   mounted() {
     //打字特效
     console.log(this.typetxt);
-    this.isString(this.typetxt, this.time);
+    setTimeout(() => {
+      this.isString(this.typetxt, this.time);
+    }, 0);
   },
 };
 </script>

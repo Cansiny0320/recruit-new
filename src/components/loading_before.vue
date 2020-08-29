@@ -1,26 +1,11 @@
 <!-- 加载前置动画 -->
 <template>
   <div class="loadingbefore">
-    <div
-      class="loading_tv"
-      src="../assets/images/loading/Texteffects@2x.png"
-    ></div>
+    <div :class="show ? '' : `loading_tv`" src="../assets/images/loading/Texteffects@2x.png"></div>
     <div class="loading_txt">
-      <type1
-        :typetxt="loadingtxt[0].txt"
-        :time="time"
-        v-if="index == loadingtxt[0].id"
-      ></type1>
-      <type2
-        :typetxt="loadingtxt[1].txt"
-        :time="time"
-        v-if="index == loadingtxt[1].id"
-      ></type2>
-      <type3
-        :typetxt="loadingtxt[2].txt"
-        :time="time"
-        v-if="index == loadingtxt[2].id"
-      ></type3>
+      <type1 :typetxt="loadingtxt[0].txt" :time="time" v-if="index == loadingtxt[0].id"></type1>
+      <type2 :typetxt="loadingtxt[1].txt" :time="time" v-if="index == loadingtxt[1].id"></type2>
+      <type3 :typetxt="loadingtxt[2].txt" :time="time" v-if="index == loadingtxt[2].id"></type3>
     </div>
   </div>
 </template>
@@ -32,7 +17,7 @@ import type3 from '@components/type.vue';
 import jump from '../utils/jump';
 export default {
   components: { type1, type2, type3 },
-  data() {
+  data () {
     return {
       loadingtxt: [
         {
@@ -44,13 +29,17 @@ export default {
       ],
       index: -1,
       time: 100,
+      show: true,
     };
   },
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created () { },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted () {
+    setTimeout(() => {
+      this.show = false;
+    }, 100);
     let loading = setInterval(() => {
       this.index++;
       if (this.index == 2) {
@@ -92,12 +81,14 @@ export default {
 
     &::after {
       content: '';
-      animation: glitch-one 1s infinite step-end;
+      animation: glitch-one 2s infinite step-end;
+      animation-delay: 1s;
       z-index: 200;
     }
     &::before {
       content: '';
-      animation: glitch-two 1s infinite 1s step-end;
+      animation: glitch-two 2s infinite step-end;
+      animation-delay: 1s;
       z-index: 200;
     }
   }
