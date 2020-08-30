@@ -63,7 +63,7 @@ export default {
 
         a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
-
+        console.log(obj.a, obj.b, obj.c);
         img[0].style.transform = `translate3d(${obj.a / 10}px,${obj.b / 10}px,${obj.c}px)`
         tip.innerHTML =
           'alpha[左右]:' + obj.a +
