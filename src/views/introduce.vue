@@ -48,6 +48,8 @@ import stickers7 from '../components/stickers';
 import stickers8 from '../components/stickers';
 import stickers9 from '../components/stickers';
 import stickers10 from '../components/stickers';
+
+import jump from "../utils/jump"
 export default {
   components: {
     stickers1,
@@ -94,6 +96,7 @@ export default {
         that.index++;
         if (this.index == 11) {
           clearInterval(Show);
+          jump("/detail", this)
         }
       }, 1000);
     }, 2000);
