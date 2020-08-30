@@ -2,8 +2,8 @@
 <template>
   <div class="detail">
     <img class="add" src="../assets/images/detail/add.png" alt />
-    <!-- <button @click="getGrant" v-if="allow">可</button>
-    <p id="tip"></p>-->
+    <button @click="getGrant" v-if="allow">可</button>
+    <p id="tip"></p>
   </div>
 </template>
 <script>
