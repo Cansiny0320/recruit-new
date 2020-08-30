@@ -9,7 +9,7 @@
 <script type="text/javascript" src="//staticres.693975.com/jsCommon/jquery.min.js"></script>
 <script type="text/javascript" src="//staticres.693975.com/jsCommon/orienter.js"></script>
 <script>
-
+import Orienter from "../utils/orienter"
 export default {
   components: {},
   data () {
