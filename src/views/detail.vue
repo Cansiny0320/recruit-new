@@ -2,7 +2,7 @@
 <template>
   <div class="detail">
     <img src="../assets/images/detail/add.png" alt />
-    <button @click="getGrant">授权</button>
+    <button @click="getGrant" v-if="allow">可</button>
     <p id="tip"></p>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   components: {},
   data () {
     return {
-
+      allow: true
     };
   },
   methods: {
@@ -45,6 +45,7 @@ export default {
       } else {
         this.start();
       }
+      this.allow = false
     },
 
     //捕捉行为动作
@@ -94,9 +95,19 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-direction: column;
   img {
     transform: translateX(-20px);
+  }
+  button {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
   }
 }
 </style>
