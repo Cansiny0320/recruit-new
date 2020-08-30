@@ -6,8 +6,6 @@
     <p id="tip"></p>
   </div>
 </template>
-<script type="text/javascript" src="//staticres.693975.com/jsCommon/jquery.min.js"></script>
-<script type="text/javascript" src="//staticres.693975.com/jsCommon/orienter.js"></script>
 <script>
 import Orienter from "../utils/orienter"
 export default {
@@ -64,7 +62,6 @@ export default {
         a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
 
-        $("img").css("-webkit-transform", "translate3d(" + a + "px," + b + "px,0)");
 
         tip.innerHTML =
           'alpha[左右]:' + obj.a +
