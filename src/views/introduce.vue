@@ -81,16 +81,17 @@ export default {
       index: 0,
     };
   },
-  methods: {},
-  //生命周期 - 创建完成（可以访问当前this实例）
-  created () { },
-  //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
+    /**
+     * @description: 动态展现贴纸
+     * @param {} 
+     * @return {} 
+     * @author: 林其星
+     */
     setTimeout(() => {
       let that = this;
       let Show = setInterval(() => {
         that.index++;
-        console.log(that.index);
         if (this.index == 11) {
           clearInterval(Show);
         }

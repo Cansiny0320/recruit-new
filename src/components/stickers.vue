@@ -36,16 +36,16 @@ export default {
 <style lang="scss" scoped>
 .stickers {
   .stickers_img {
-    animation: show 1s linear;
+    animation: show 0.5s linear;
     background-size: cover;
   }
 }
 @keyframes show {
   0% {
-    clip-path: inset(0px 100% 0px 0%);
+    transform: scale(2);
   }
   100% {
-    clip-path: inset(0px 0% 0px 0%);
+    transform: scale(1);
   }
 }
 </style>
