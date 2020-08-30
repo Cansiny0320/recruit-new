@@ -8,6 +8,7 @@
 </template>
 <script>
 import Orienter from "../utils/orienter"
+let img = document.getElementsByName("img")
 export default {
   components: {},
   data () {
@@ -63,7 +64,7 @@ export default {
         a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
 
-
+        img.style.transform = `translate3d(${obj.a},${obj.b},${obj.c})`
         tip.innerHTML =
           'alpha[左右]:' + obj.a +
           '<br>' + 'beta[前后]:' + obj.b +
