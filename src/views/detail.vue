@@ -1,14 +1,14 @@
 <!-- 详情 -->
 <template>
   <div class="detail">
-    <img src="../assets/images/detail/add.png" alt />
-    <button @click="getGrant" v-if="allow">可</button>
-    <p id="tip"></p>
+    <img class="add" src="../assets/images/detail/add.png" alt />
+    <!-- <button @click="getGrant" v-if="allow">可</button>
+    <p id="tip"></p>-->
   </div>
 </template>
 <script>
-import Orienter from "../utils/orienter"
-let img = document.getElementsByName("img")
+import Orienter from "../utils/orienter";
+let img = document.getElementsByClassName("add")
 export default {
   components: {},
   data () {
@@ -64,7 +64,7 @@ export default {
         a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
 
-        img.style.transform = `translate3d(${obj.a},${obj.b},${obj.c})`
+        img[0].style.transform = `translate3d(${obj.a / 10}px,${obj.b / 10}px,${obj.c}px)`
         tip.innerHTML =
           'alpha[左右]:' + obj.a +
           '<br>' + 'beta[前后]:' + obj.b +
@@ -86,6 +86,8 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
 
+
+    console.log(img[0].style);
   },
 }
 </script>
@@ -98,7 +100,6 @@ export default {
   align-items: center;
   flex-direction: column;
   img {
-    transform: translateX(-20px);
   }
   button {
     height: 100px;
@@ -108,6 +109,7 @@ export default {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+
     z-index: 2;
   }
 }
