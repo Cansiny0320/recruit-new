@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <img class="add" src="../assets/images/detail/add.png" alt />
+    <img class="add" :src="require(`../assets/images/detail/${img}`)" alt />
     <p id="tip"></p>
   </div>
 </template>
@@ -8,6 +8,9 @@
 import Orienter from "../utils/orienter";
 let img = document.getElementsByClassName("add")
 export default {
+  props: {
+    img: String
+  },
   components: {},
   data () {
     return {

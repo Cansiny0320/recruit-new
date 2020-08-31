@@ -1,7 +1,7 @@
 <!-- 网校介绍页 -->
 <template>
   <div class="detail">
-    <gravity1 v-if="!show"></gravity1>
+    <gravity1 v-if="!show" :img="img"></gravity1>
     <button @click="getGrant" v-if="show">可</button>
   </div>
 </template>
@@ -12,7 +12,8 @@ export default {
   components: { gravity1 },
   data () {
     return {
-      show: true
+      show: true,
+      img: "2@2x.png"
     };
   },
   methods: {
