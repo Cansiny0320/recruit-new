@@ -1,7 +1,7 @@
 <!-- 重力感应组件 -->
 <template>
   <div class="detail">
-    <img src="../assets/images/detail/2@2x.png" alt />
+    <img class="add" :src="require(`../assets/images/detail/${img}`)" alt />
     <!-- <p id="tip"></p> -->
   </div>
 </template>
@@ -62,8 +62,8 @@ export default {
         a = obj.lon < 180 ? obj.lon : obj.lon - 360;
         b = obj.lat;
 
-        a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
-        b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
+        a = a > 0 ? a > 25 ? 25 : a : a < -25 ? -25 : a;
+        b = b > 0 ? b > 25 ? 25 : b : b < -25 ? -25 : b;
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
 

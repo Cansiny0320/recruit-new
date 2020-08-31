@@ -1,22 +1,20 @@
 <!-- 网校介绍页 -->
 <template>
   <div class="detail">
-    <!-- <div class="top"></div>
+    <div class="top"></div>
     <div class="cards">
       <card1></card1>
-    </div>-->
-    <gravity :img="img"></gravity>
+    </div>
   </div>
 </template>
 
 <script>
-// import card1 from "@components/card"
-import gravity from "../components/gravity"
+import card1 from "@components/card"
 export default {
-  components: { gravity },
+  components: { card1 },
   data () {
     return {
-      img: '2@2x.png'
+
     };
   },
   methods: {
