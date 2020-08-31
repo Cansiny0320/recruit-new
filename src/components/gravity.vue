@@ -30,7 +30,7 @@ export default {
       if (this.is_ios()) {
         window.DeviceOrientationEvent.requestPermission()
           .then(state => {
-            //alert(state)
+            alert(state)
             switch (state) {
               case "granted":
                 this.start();
@@ -86,7 +86,7 @@ export default {
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
-
+    console.log("这里是重力组件");
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
