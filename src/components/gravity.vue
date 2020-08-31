@@ -1,6 +1,7 @@
 <template>
   <div class="detail">
     <img class="add" src="../assets/images/detail/add.png" alt />
+    <button>可</button>
     <p id="tip"></p>
   </div>
 </template>
