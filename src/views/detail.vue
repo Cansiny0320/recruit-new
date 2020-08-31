@@ -2,7 +2,6 @@
 <template>
   <div class="detail">
     <img class="add" src="../assets/images/detail/add.png" alt />
-    <button @click="getGrant" v-if="allow">可</button>
     <p id="tip"></p>
   </div>
 </template>
@@ -13,7 +12,6 @@ export default {
   components: {},
   data () {
     return {
-      allow: true
     };
   },
   methods: {
@@ -90,9 +88,7 @@ export default {
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
-
-
-    console.log(img[0].style);
+    this.getGrant()
   },
 }
 </script>
