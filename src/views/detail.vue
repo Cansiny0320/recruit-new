@@ -1,19 +1,22 @@
 <!-- 网校介绍页 -->
 <template>
   <div class="detail">
-    <gravity1 v-if="!show" :img="img"></gravity1>
+    <div class="top"></div>
+    <div class="cards">
+      <card1 v-if="!show"></card1>
+    </div>
+
     <button @click="getGrant" v-if="show">可</button>
   </div>
 </template>
 
 <script>
-import gravity1 from "@components/gravity"
+import card1 from "../components/card"
 export default {
-  components: { gravity1 },
+  components: { card1 },
   data () {
     return {
       show: true,
-      img: "2@2x.png"
     };
   },
   methods: {
@@ -57,6 +60,25 @@ export default {
 </script>
 <style lang='scss' scoped>
 .detail {
+  width: 750px;
+  height: 100%;
+  overflow: hidden;
+  background-image: url('../assets/images/introduce/背景@2x.png');
+  background-size: cover;
+  .top {
+    width: 912px;
+    height: 275px;
+    position: relative;
+    background-image: url('../assets/images/detail/纯图形标 (2)@2x.png');
+    background-size: cover;
+    top: -60px;
+    left: -100px;
+  }
+  .cards {
+    position: relative;
+    top: -60px;
+  }
+
   button {
     height: 100px;
     width: 100px;
