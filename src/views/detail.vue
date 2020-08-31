@@ -65,16 +65,9 @@ export default {
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
-        let cosA = Math.cos(a)
-        let cosB = Math.cos(obj.b)
-        let cosG = Math.cos(obj.g)
-        let n = [0, 0, 1] //初始法向量
-        let h = Math.sqrt(Math.pow(n[0] - cosB, 2) + Math.pow(n[1] - cosA, 2) + Math.pow(n[2] - cosG, 2));
-        let theta = Math.acos((1 + 1 - h * h) / 2) * 180 / Math.PI
-        img[0].style.transform = `rotate3d(${cosB},${cosA},${0},${theta}deg)`
-        console.log(cosB, cosA, cosG);
-        console.log("h:" + h);
-        console.log(theta);
+
+        img[0].style.transform = `rotateX(${obj.b}deg) rotateY(${a}deg)`
+
         tip.innerHTML =
 
           'alpha[左右]:' + obj.a +
