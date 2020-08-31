@@ -1,7 +1,6 @@
 <template>
   <div class="detail">
     <img class="add" src="../assets/images/detail/add.png" alt />
-    <button @click="getGrant">可</button>
     <p id="tip"></p>
   </div>
 </template>
@@ -15,38 +14,8 @@ export default {
     };
   },
   methods: {
-    is_ios () {
-      if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-        return true
-      } else {
-        return false;
-      }
-    },
 
     //ios授权
-    getGrant () {
-      if (this.is_ios()) {
-        window.DeviceOrientationEvent.requestPermission()
-          .then(state => {
-            alert(state)
-            switch (state) {
-              case "granted":
-                this.start();
-                break;
-              case "denied":
-                alert("你拒绝了使用陀螺仪");
-                break;
-              case "prompt":
-                alert("其他行为");
-                break;
-            }
-          });
-      } else {
-        this.start();
-      }
-      this.allow = false
-    },
-
     //捕捉行为动作
     start () {
       var o = new Orienter();
@@ -89,6 +58,7 @@ export default {
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
+    this.start()
   },
 }
 </script>
