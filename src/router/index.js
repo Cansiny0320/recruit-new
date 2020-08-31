@@ -29,7 +29,7 @@ const routes = [
   {
     path: '/detail',
     name: 'detail',
-    component: () => import('@components/gravity.vue'),
+    component: () => import('@views/detail'),
   },
 ];
 
