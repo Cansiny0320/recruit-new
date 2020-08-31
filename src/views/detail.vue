@@ -61,19 +61,28 @@ export default {
         a = obj.lon < 180 ? obj.lon : obj.lon - 360;
         b = obj.lat;
 
-        a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
+        a = a > 0 ? a > 360 ? 360 : a : a < -360 ? -360 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
         console.log(obj.a, obj.b, obj.g);
-        img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
+        //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
+        let cosA = Math.cos(a)
+        let cosB = Math.cos(obj.b)
+        let cosG = Math.cos(obj.g)
+        let n = [0, 0, 1] //初始法向量
+        let h = Math.sqrt(Math.pow(n[0] - cosB, 2) + Math.pow(n[1] - cosA, 2) + Math.pow(n[2] - cosG, 2));
+        let theta = Math.acos((1 + 1 + h * h) / 2) * 180 / Math.PI
+        img[0].style.transform = `rotate3d(${cosB},${cosA},${cosG}.${theta})`
         tip.innerHTML =
+
           'alpha[左右]:' + obj.a +
           '<br>' + 'beta[前后]:' + obj.b +
           '<br>' + 'gamma[扭转]:' + obj.g +
           '<br>' + 'longitude[纬度]:' + obj.lon +
-          '<br>' + 'latitude[精度]:' + obj.lat +
+          '<br>' + 'latitude[经度]:' + obj.lat +
           // '<br>' + 'direction:' + obj.dir + 
           '<br>' + 'a:' + a +
           '<br>' + 'b:' + b;
+
       };
 
       o.on();
@@ -101,6 +110,7 @@ export default {
   flex-direction: column;
   img {
     transform: translate3d(0px, 0px, 0px);
+    transform: rotate3d(0, 0, 0, 30deg);
   }
   button {
     height: 100px;
