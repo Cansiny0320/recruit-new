@@ -1,21 +1,17 @@
 <!-- 网校介绍页 -->
 <template>
   <div class="detail">
-    <!-- <div class="top"></div>
-    <div class="cards">
-      <card1></card1>
-    </div>-->
     <gravity1></gravity1>
   </div>
 </template>
 
 <script>
-import gravity1 from "../components/gravity"
-// import card1 from "@components/card"
+import gravity1 from "@components/gravity"
 export default {
   components: { gravity1 },
   data () {
     return {
+
     };
   },
   methods: {
@@ -32,28 +28,6 @@ export default {
 }
 </script>
 <style lang='scss' scoped>
-@font-face {
-  font-family: 'AliHYAiHei';
-  src: url('../assets/font-style/AliHYAiHei.ttf');
-}
 .detail {
-  // width: 750px;
-  // height: 100%;
-  // overflow: hidden;
-  // background-image: url('../assets/images/introduce/背景@2x.png');
-  // background-size: cover;
-  // .top {
-  //   width: 912px;
-  //   height: 275px;
-  //   position: relative;
-  //   background-image: url('../assets/images/detail/纯图形标 (2)@2x.png');
-  //   background-size: cover;
-  //   top: -60px;
-  //   left: -100px;
-  // }
-  // .cards {
-  //   position: relative;
-  //   top: -60px;
-  // }
 }
 </style>
