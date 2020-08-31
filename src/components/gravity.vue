@@ -1,7 +1,7 @@
 <!-- 重力感应组件 -->
 <template>
   <div class="detail">
-    <img class="add" :src="require(`../assets/images/detail/${img}`)" alt />
+    <img class="add" src="../assets/images/detail/2@2x.png" alt />
     <!-- <p id="tip"></p> -->
   </div>
 </template>

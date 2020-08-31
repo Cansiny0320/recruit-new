@@ -4,8 +4,8 @@
     <!-- <div class="top"></div>
     <div class="cards">
       <card1></card1>
-    </div> -->
-    <gravity :img="img"></gravity>
+    </div>-->
+    <gravity></gravity>
   </div>
 </template>
 
@@ -16,7 +16,6 @@ export default {
   components: { gravity },
   data () {
     return {
-img:'2@2x.png'
     };
   },
   methods: {
