@@ -61,6 +61,7 @@ export default {
 
         a = a > 0 ? a > 50 ? 50 : a : a < -50 ? -50 : a;
         b = b > 0 ? b > 50 ? 50 : b : b < -50 ? -50 : b;
+        console.log(a, b);
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
 
