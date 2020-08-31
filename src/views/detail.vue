@@ -1,8 +1,8 @@
 <!-- 网校介绍页 -->
 <template>
   <div class="detail">
-    <gravity1></gravity1>
-    <button @click="getGrant">可</button>
+    <gravity1 v-if="!show"></gravity1>
+    <button @click="getGrant" v-if="show">可</button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   components: { gravity1 },
   data () {
     return {
-
+      show: true
     };
   },
   methods: {
@@ -33,6 +33,7 @@ export default {
             }
           });
       }
+      this.show = false
 
     },
     is_ios () {
@@ -55,5 +56,16 @@ export default {
 </script>
 <style lang='scss' scoped>
 .detail {
+  button {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    z-index: 2;
+  }
 }
 </style>
