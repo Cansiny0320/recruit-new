@@ -6,10 +6,10 @@
 </template>
 <script>
 import Orienter from "../utils/orienter";
-let img = document.querySelector(".add")
 export default {
   props: {
-    img: String
+    img: String,
+    id: Number
   },
   components: {},
   data () {
@@ -20,7 +20,7 @@ export default {
 
     //ios授权
     //捕捉行为动作
-    start () {
+    start (e) {
       var o = new Orienter();
       //var tip = document.getElementById('tip');
 
@@ -37,7 +37,7 @@ export default {
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
 
-        img.style.transform = `rotateX(${b / 2}deg) rotateY(${a / 2}deg)`
+        e.style.transform = `rotateX(${b / 2}deg) rotateY(${a / 2}deg)`
 
         //   tip.innerHTML =
 
@@ -61,7 +61,9 @@ export default {
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
-    this.start()
+    let img = document.querySelectorAll(".add")
+    console.log(img[this.id]);
+    this.start(img[this.id])
   },
 }
 </script>

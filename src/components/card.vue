@@ -3,13 +3,13 @@
   <div class="card">
     <div class="card_ctx">
       <div class="topic">
-        <gravity1 :img="img[0]"></gravity1>
+        <gravity1 :img="img[0]" :id="0"></gravity1>
       </div>
       <div class="logo">
-        <gravity2 :img="img[1]"></gravity2>
+        <gravity2 :img="img[1]" :id="1"></gravity2>
       </div>
       <div class="otherlogo">
-        <gravity3 :img="img[2]"></gravity3>
+        <gravity3 :img="img[2]" :id="2"></gravity3>
       </div>
 
       <div class="tip"></div>
