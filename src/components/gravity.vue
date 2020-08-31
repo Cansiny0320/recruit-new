@@ -1,16 +1,13 @@
 <template>
   <div class="detail">
     <img class="add" src="../assets/images/detail/add.png" alt />
-    <!-- <p id="tip"></p> -->
+    <p id="tip"></p>
   </div>
 </template>
 <script>
 import Orienter from "../utils/orienter";
 let img = document.getElementsByClassName("add")
 export default {
-  props: {
-    img: String
-  },
   components: {},
   data () {
     return {
@@ -52,7 +49,7 @@ export default {
     //捕捉行为动作
     start () {
       var o = new Orienter();
-      // var tip = document.getElementById('tip');
+      var tip = document.getElementById('tip');
 
       o.onOrient = function (obj) {
 
@@ -68,16 +65,16 @@ export default {
 
         img[0].style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
-        // tip.innerHTML =
+        tip.innerHTML =
 
-        //   'alpha[左右]:' + obj.a +
-        //   '<br>' + 'beta[前后]:' + obj.b +
-        //   '<br>' + 'gamma[扭转]:' + obj.g +
-        //   '<br>' + 'longitude[纬度]:' + obj.lon +
-        //   '<br>' + 'latitude[经度]:' + obj.lat +
-        //   // '<br>' + 'direction:' + obj.dir + 
-        //   '<br>' + 'a:' + a +
-        //   '<br>' + 'b:' + b;
+          'alpha[左右]:' + obj.a +
+          '<br>' + 'beta[前后]:' + obj.b +
+          '<br>' + 'gamma[扭转]:' + obj.g +
+          '<br>' + 'longitude[纬度]:' + obj.lon +
+          '<br>' + 'latitude[经度]:' + obj.lat +
+          // '<br>' + 'direction:' + obj.dir + 
+          '<br>' + 'a:' + a +
+          '<br>' + 'b:' + b;
 
       };
 
@@ -87,6 +84,7 @@ export default {
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
     console.log("这里是重力组件");
+    this.getGrant()
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
