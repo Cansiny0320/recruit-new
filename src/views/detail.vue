@@ -71,7 +71,7 @@ export default {
         let n = [0, 0, 1] //初始法向量
         let h = Math.sqrt(Math.pow(n[0] - cosB, 2) + Math.pow(n[1] - cosA, 2) + Math.pow(n[2] - cosG, 2));
         let theta = Math.acos((1 + 1 - h * h) / 2) * 180 / Math.PI
-        img[0].style.transform = `rotate3d(${cosB},${cosA},${0},${theta / 10}deg)`
+        img[0].style.transform = `rotate3d(${cosB},${cosA},${0},${theta}deg)`
         console.log(cosB, cosA, cosG);
         console.log("h:" + h);
         console.log(theta);
