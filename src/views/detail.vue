@@ -28,7 +28,7 @@ export default {
       if (this.is_ios()) {
         window.DeviceOrientationEvent.requestPermission()
           .then(state => {
-            alert(state)
+            //alert(state)
             switch (state) {
               case "granted":
                 this.start();
