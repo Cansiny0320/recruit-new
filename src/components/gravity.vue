@@ -6,7 +6,7 @@
 </template>
 <script>
 import Orienter from "../utils/orienter";
-let img = document.getElementsByClassName("add")
+let img = document.querySelector(".add")
 export default {
   props: {
     img: String

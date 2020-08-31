@@ -3,7 +3,7 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <card1 v-if="!show"></card1>
+      <card1></card1>
     </div>
 
     <button @click="getGrant" v-if="show">可</button>
