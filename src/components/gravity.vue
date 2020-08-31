@@ -34,7 +34,7 @@ export default {
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
 
-        img[0].style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
+        img[0].style.transform = `rotateX(${b / 2}deg) rotateY(${a / 2}deg)`
 
         tip.innerHTML =
 
