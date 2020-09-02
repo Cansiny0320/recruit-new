@@ -49,7 +49,7 @@ export default {
           ids: [6, 7, 8]
         },
         web: {
-          images: ['web/图层 682@2x.png', 'web/眼@2x', 'web/1png@2x.png'],
+          images: ['web/图层 682@2x.png', 'web/眼@2x.png', 'web/1png@2x.png'],
           ids: [9, 10, 11]
         },
         sre: {
