@@ -204,7 +204,7 @@ $otherlogo-Y: '100', '170', '170', '170', '170';
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 
-    z-index: 2;
+    z-index: 99;
   }
 }
 </style>
