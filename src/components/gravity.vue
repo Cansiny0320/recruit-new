@@ -1,3 +1,12 @@
+<!--
+ * @Description: 重力感应组件
+ * @Version: 0.0
+ * @Author: 林其星
+ * @Date: 2020-08-30 10:52:41
+ * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
+ * @LastEditTime: 2020-09-01 13:00:25
+-->
+
 <template>
   <div class="detail">
     <img class="add" :src="require(`../assets/images/detail/${img}`)" alt />
@@ -37,7 +46,7 @@ export default {
         //console.log(obj.a, obj.b, obj.g);
         //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
 
-        e.style.transform = `rotateX(${b / 2}deg) rotateY(${a / 2}deg)`
+        e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
         //   tip.innerHTML =
 
@@ -74,6 +83,8 @@ export default {
   align-items: center;
   flex-direction: column;
   img {
+    width: 100%;
+    height: 100%;
     transform: translate3d(0px, 0px, 0px);
     transform: rotate3d(0, 0, 0, 30deg);
   }
