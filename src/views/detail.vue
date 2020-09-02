@@ -3,24 +3,24 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1">
+      <div class="card1" v-if="!show">
         <card1 :img="img.product.images" :ids="img.product.ids"></card1>
       </div>
-      <div class="card2">
+      <div class="card2" v-if="!show">
         <card2 :img="img.design.images" :ids="img.design.ids"></card2>
       </div>
-      <div class="card3">
+      <div class="card3" v-if="!show">
         <card3 :img="img.mobile.images" :ids="img.mobile.ids"></card3>
       </div>
-      <div class="card4">
+      <div class="card4" v-if="!show">
         <card4 :img="img.web.images" :ids="img.web.ids"></card4>
       </div>
-      <div class="card5">
+      <div class="card5" v-if="!show">
         <card5 :img="img.sre.images" :ids="img.sre.ids"></card5>
       </div>
     </div>
 
-    <button @click="getGrant" v-if="show">可</button>
+    <div class="Pop-ups" @click="getGrant" v-if="show">点击体验炫酷重力感应特效</div>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
           ids: [3, 4, 5]
         },
         mobile: {
-          images: ['mobile/图层 682@2x.png', 'mobile/小人@2x.png', 'mobile/3@2x.png'],
+          images: ['mobile/图层 682@2x.png', 'mobile/3@2x.png', 'mobile/小人@2x.png'],
           ids: [6, 7, 8]
         },
         web: {
@@ -113,20 +113,20 @@ $background: 'product/Overlay Effect - Change Opacity@2x',
 $tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
   'web/组 12_2@2x', 'sre/组 12_3@2x';
 //部门标签
-$topic-w: '217', '217', '217', '217', '217';
-$topic-h: '132', '132', '132', '132', '132';
-$topic-X: '50', '50', '50', '50', '50';
-$topic-Y: '50', '250', '250', '250', '250';
+$topic-w: '217', '217', '217', '217', '241';
+$topic-h: '132', '132', '132', '132', '78';
+$topic-X: '50', '50', '50', '50', '30';
+$topic-Y: '50', '250', '250', '250', '365';
 //小logo
-$logo-w: '139', '262', '262', '262', '262';
-$logo-h: '107', '265', '265', '265', '265';
-$logo-X: '70', '30', '30', '30', '30';
-$logo-Y: '330', '100', '100', '100', '100';
+$logo-w: '139', '262', '420', '262', '218';
+$logo-h: '107', '265', '420', '265', '226';
+$logo-X: '70', '30', '-40', '30', '50';
+$logo-Y: '330', '100', '0', '100', '115';
 //大logo
-$otherlogo-w: '175', '188', '188', '188', '188';
-$otherlogo-h: '338', '122', '122', '122', '122';
-$otherlogo-X: '110', '95', '95', '95', '95';
-$otherlogo-Y: '100', '170', '170', '170', '170';
+$otherlogo-w: '175', '188', '300', '188', '158';
+$otherlogo-h: '338', '122', '300', '122', '228';
+$otherlogo-X: '110', '95', '16', '95', '125';
+$otherlogo-Y: '100', '170', '166', '170', '145';
 
 .detail {
   width: 750px;
@@ -145,7 +145,7 @@ $otherlogo-Y: '100', '170', '170', '170', '170';
   }
   .cards {
     position: relative;
-    top: -60px;
+    top: -40px;
     display: flex;
     flex-wrap: wrap;
 
@@ -153,6 +153,9 @@ $otherlogo-Y: '100', '170', '170', '170', '170';
       .card#{$i} {
         width: 347px;
         height: 506px;
+        margin-left: 20px;
+        margin-bottom: 40px;
+        animation: rotate 0.5s linear;
         ::v-deep .card {
           width: 347px;
           height: 506px;
@@ -195,16 +198,30 @@ $otherlogo-Y: '100', '170', '170', '170', '170';
       }
     }
   }
-  button {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+  .Pop-ups {
+    height: 200px;
+    width: 400px;
+    border-radius: 10px;
+    color: cornsilk;
+    line-height: 200px;
+    text-align: center;
+    background-color: #2486b9;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    top: 500px;
+    left: 175px;
 
+    animation: rotate 0.5s linear;
     z-index: 99;
+  }
+  @keyframes rotate {
+    0% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
   }
 }
 </style>

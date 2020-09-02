@@ -12,8 +12,6 @@ const isDebug = true;
 if (isDebug) {
   new VConsole();
 }
-import judgeClient from "./utils/judgeClient"
-judgeClient()
 export default {};
 </script>
 

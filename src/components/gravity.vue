@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-01 13:00:25
+ * @LastEditTime: 2020-09-02 11:21:48
 -->
 
 <template>
@@ -87,17 +87,6 @@ export default {
     height: 100%;
     transform: translate3d(0px, 0px, 0px);
     transform: rotate3d(0, 0, 0, 30deg);
-  }
-  button {
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
-    z-index: 2;
   }
 }
 </style>
