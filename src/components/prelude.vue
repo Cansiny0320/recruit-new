@@ -1,8 +1,8 @@
 <!-- 前奏页面 -->
 <template>
   <div class="prelude">
-    <div :class="change ? prelude_img1 : prelude_img2"></div>
-    <div class="mask" :class="show ? '' : mask_after"></div>
+    <div :class="change ? prelude_img1 : prelude_img2" @click="!change"></div>
+    <div v-show="!change" class="hand"></div>
   </div>
 </template>
 
@@ -19,7 +19,15 @@ export default {
       show: true,
     };
   },
-  methods: {},
+  methods: {
+    jumpto: () => {
+      console.log('onclick');
+      if (this.change == true) {
+        return
+      }
+      jump('/introduce', this);
+    }
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () { },
   //生命周期 - 挂载完成（可以访问DOM元素）
@@ -29,9 +37,6 @@ export default {
       // setTimeout(() => {
       //   this.show = false;
       // }, 2000);
-      setTimeout(() => {
-        jump('/introduce', this);
-      }, 3000);
     }, 3000);
   },
 };
@@ -49,30 +54,20 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
   display: flex;
   justify-content: center;
   overflow: hidden;
-
-  .mask {
+  z-index: 99999;
+  .hand {
     position: absolute;
-    width: 0px;
-    height: 0px;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: white;
-    transition: all 0.7s;
-    z-index: 1000;
-  }
-
-  .mask_after {
-    width: 4000px;
-    height: 4000px;
+    width: 78px;
+    height: 63px;
+    background-image: url('../assets/images/loading/hand.png');
+    background-size: cover;
   }
 
   .prelude_img1 {
     position: relative;
     width: 488px;
     height: 223px;
-
+    z-index: 1000;
     background-image: url($img1);
     background-size: cover;
 
@@ -103,6 +98,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       animation: glitch-two 3s infinite 1s step-end;
       z-index: 2;
     }
+    z-index: 99999;
   }
   .prelude_img2 {
     position: relative;
@@ -139,6 +135,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       animation: glitch-two 3s infinite 1s step-end;
       z-index: 2;
     }
+    z-index: 999999999999;
   }
   @keyframes glitch-one {
     3% {

@@ -12,7 +12,8 @@ export default {
   data () {
     return {};
   },
-  methods: {},
+  methods: {
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () { },
   //生命周期 - 挂载完成（可以访问DOM元素）
@@ -49,7 +50,7 @@ export default {
     position: absolute;
     background-image: url('../assets/images/loading/O2@2x.png');
     background-size: cover;
-    z-index: 999;
+    z-index: 99;
   }
 }
 </style>

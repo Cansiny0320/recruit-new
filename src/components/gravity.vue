@@ -4,13 +4,13 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-02 11:21:48
+ * @LastEditTime: 2020-09-02 19:25:00
 -->
 
 <template>
   <div class="detail">
     <img class="add" :src="require(`../assets/images/detail/${img}`)" alt />
-    <!-- <p id="tip"></p> -->
+    <p id="tip"></p>
   </div>
 </template>
 <script>
@@ -31,7 +31,7 @@ export default {
     //捕捉行为动作
     start (e) {
       var o = new Orienter();
-      //var tip = document.getElementById('tip');
+      var tip = document.getElementById('tip');
 
       o.onOrient = function (obj) {
 
@@ -48,16 +48,16 @@ export default {
 
         e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
-        //   tip.innerHTML =
+        tip.innerHTML =
 
-        //     'alpha[左右]:' + obj.a +
-        //     '<br>' + 'beta[前后]:' + obj.b +
-        //     '<br>' + 'gamma[扭转]:' + obj.g +
-        //     '<br>' + 'longitude[纬度]:' + obj.lon +
-        //     '<br>' + 'latitude[经度]:' + obj.lat +
-        //     // '<br>' + 'direction:' + obj.dir + 
-        //     '<br>' + 'a:' + a +
-        //     '<br>' + 'b:' + b;
+          'alpha[左右]:' + obj.a +
+          '<br>' + 'beta[前后]:' + obj.b +
+          '<br>' + 'gamma[扭转]:' + obj.g +
+          '<br>' + 'longitude[纬度]:' + obj.lon +
+          '<br>' + 'latitude[经度]:' + obj.lat +
+          // '<br>' + 'direction:' + obj.dir + 
+          '<br>' + 'a:' + a +
+          '<br>' + 'b:' + b;
 
       };
 

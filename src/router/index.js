@@ -22,6 +22,16 @@ const routes = [
     ],
   },
   {
+    path: '',
+    name: 'loading_before',
+    component: () => import('@components/loading_before'),
+  },
+  {
+    path: '/prelude',
+    name: 'prelude',
+    component: () => import('@components/prelude'),
+  },
+  {
     path: '/introduce',
     name: 'introduce',
     component: () => import('@views/introduce'),
