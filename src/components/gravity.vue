@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-02 19:49:59
+ * @LastEditTime: 2020-09-02 19:58:25
 -->
 
 <template>
@@ -45,7 +45,7 @@ export default {
         b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
         console.log(a, b);
         //console.log(obj.a, obj.b, obj.g);
-        e.style.transform = `translate3d(${a / 10}px,${b / 10}px,${0}px)`
+        e.style.transform = `translate3d(${a}px,${b}px,${0}px)`
 
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
@@ -88,6 +88,7 @@ export default {
     height: 100%;
     transform: translate3d(0px, 0px, 0px);
     transform: rotate3d(0, 0, 0, 30deg);
+    transition: all 0.4s;
   }
 }
 </style>
