@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-02 19:25:00
+ * @LastEditTime: 2020-09-02 19:49:59
 -->
 
 <template>
@@ -23,6 +23,7 @@ export default {
   components: {},
   data () {
     return {
+
     };
   },
   methods: {
@@ -44,9 +45,9 @@ export default {
         b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
         console.log(a, b);
         //console.log(obj.a, obj.b, obj.g);
-        //img[0].style.transform = `translate3d(${a}px,${b}px,${0}px)`
+        e.style.transform = `translate3d(${a / 10}px,${b / 10}px,${0}px)`
 
-        e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
+        //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
         tip.innerHTML =
 
