@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-04 21:14:48
+ * @LastEditTime: 2020-09-04 21:21:20
 -->
 
 <template>
@@ -43,12 +43,12 @@ export default {
 
         a = a > 0 ? a > 30 ? 30 : a : a < -30 ? -30 : a;
         b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
-        console.log(a, b);
+        // console.log(a, b);
         //console.log(obj.a, obj.b, obj.g);
         e.style.transform = `translate3d(${0}px,${0}px,${0}px)`
-        let fabA = Math.abs(a)
-        let fabB = Math.abs(b)
-        console.log(a / fabA, b / fabB);
+        let fabA = Math.abs(a) / a
+        let fabB = Math.abs(b) / b
+        console.log(fabA, fabB);
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
         tip.innerHTML =
