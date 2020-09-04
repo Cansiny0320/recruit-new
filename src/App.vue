@@ -12,6 +12,8 @@ const isDebug = true;
 if (isDebug) {
   new VConsole();
 }
+
+
 export default {};
 </script>
 
