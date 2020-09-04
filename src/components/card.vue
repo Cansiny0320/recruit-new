@@ -2,16 +2,6 @@
 <template>
   <div class="card">
     <div class="card_ctx">
-      <div class="topic">
-        <gravity1 :img="img[0]" :id="ids[0]"></gravity1>
-      </div>
-      <div class="logo">
-        <gravity2 :img="img[1]" :id="ids[1]"></gravity2>
-      </div>
-      <div class="otherlogo">
-        <gravity3 :img="img[2]" :id="ids[2]"></gravity3>
-      </div>
-
       <div class="tip"></div>
     </div>
     <div class="mask"></div>
@@ -20,34 +10,25 @@
 </template>
 
 <script>
-import gravity1 from "./gravity"
-import gravity2 from "./gravity"
-import gravity3 from "./gravity"
 export default {
   props: {
     img: Array,
-    ids: Array
+    ids: Array,
   },
-  components: { gravity1, gravity2, gravity3 },
-  data () {
+  components: {},
+  data() {
     return {
       // img: ['部门帖子@2x.png', '工程文件1@2x.png', '2@2x.png']
     };
   },
-  methods: {
-
-  },
+  methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
-
-  },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
-
-  },
-}
+  mounted() {},
+};
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .card {
   display: flex;
   justify-content: center;
