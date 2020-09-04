@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-04 22:53:17
+ * @LastEditTime: 2020-09-04 22:57:08
 -->
 
 <template>
@@ -43,7 +43,7 @@ export default {
         //console.log(obj.a, obj.b, obj.g);
         e.style.transform = `translate3d(${0}px,${0}px,${0}px)`;
         let fabA = Math.abs(a) / a;
-        let fabB = (Math.abs(b) + 20) / (b + 20);
+        let fabB = Math.abs(b + 20) / (b + 20);
         console.log(fabA, fabB);
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
 
