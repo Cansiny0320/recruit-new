@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-04 22:57:08
+ * @LastEditTime: 2020-09-04 23:11:04
 -->
 
 <template>
@@ -27,6 +27,9 @@ export default {
   methods: {
     //ios授权
     //捕捉行为动作
+    tofix(num) {
+      return Math.abs(num) / num;
+    },
     start(e) {
       var o = new Orienter();
       var tip = document.getElementById('tip');
@@ -46,7 +49,13 @@ export default {
         let fabB = Math.abs(b + 20) / (b + 20);
         console.log(fabA, fabB);
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
-
+        console.log('obj.a' + this.tofix(obj.a));
+        console.log('obj.b' + this.tofix(obj.b));
+        console.log('obj.g' + this.tofix(obj.g));
+        console.log('obj.lon' + this.tofix(obj.lon));
+        console.log('obj.lat' + this.tofix(obj.lat));
+        console.log('a' + this.tofix(a));
+        console.log('b' + this.tofix(b));
         tip.innerHTML =
           'alpha[左右]:' +
           obj.a +
