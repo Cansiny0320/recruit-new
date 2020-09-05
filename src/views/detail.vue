@@ -3,7 +3,7 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1" v-if="!show">
+      <div class="card1" v-if="!show" @click="hello">
         <card1 :img="img.product"></card1>
       </div>
       <div class="card2" v-if="!show">
@@ -34,44 +34,45 @@ export default {
   components: { card1, card2, card3, card4, card5 },
   data () {
     return {
-      show: true,
+      show: false,
       img: {
         product: {
-          src: 'https://s1.ax1x.com/2020/09/04/wApk1f.png',
+          src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
           width: 120,
           height: 197,
           id: 0
         },
         design: {
-          src: 'https://s1.ax1x.com/2020/09/04/wAFxnf.png',
+          src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
           width: 131,
           height: 188,
           id: 1
         },
         mobile: {
-          src: 'https://s1.ax1x.com/2020/09/04/wAkd4H.png',
+          src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
           width: 146,
           height: 206,
           id: 2
         },
         web: {
-          src: 'https://s1.ax1x.com/2020/09/04/wApAc8.png',
+          src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
           width: 133,
           height: 186,
           id: 3
         },
         sre: {
-          src: 'https://s1.ax1x.com/2020/09/04/wApF9P.png',
+          src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
           width: 128,
           height: 166,
           id: 4
         },
-
       }
     }
   },
   methods: {
-
+    hello () {
+      console.log('hello');
+    },
     getGrant () {
       if (this.is_ios()) {
         window.DeviceOrientationEvent.requestPermission()

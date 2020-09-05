@@ -39,7 +39,17 @@ export default {
       };
 
       o.on();
+    },
+    getPixelRatio (context) {
+      var backingStore = context.backingStorePixelRatio ||
+        context.webkitBackingStorePixelRatio ||
+        context.mozBackingStorePixelRatio ||
+        context.msBackingStorePixelRatio ||
+        context.oBackingStorePixelRatio ||
+        context.backingStorePixelRatio || 1;
+      return (window.devicePixelRatio || 1) / backingStore;
     }
+
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
@@ -60,7 +70,6 @@ export default {
     var engine = Engine.create(),
       world = engine.world;
     //初始化引擎
-    //render(渲染器)将要渲染的物理引擎是之前所创建的engine，而渲染的对象是html网页的body
     let height = 253;
     let width = 187;
     var render = Render.create({
@@ -84,13 +93,13 @@ export default {
     World.add(engine.world, [
       Bodies.rectangle(0, 0, 800, 1, { isStatic: true }),
       Bodies.rectangle(0, 0, 1, 1000, { isStatic: true }),
-      Bodies.rectangle(0, height, 800, 1, { isStatic: true }),
-      Bodies.rectangle(width, 0, 1, 1000, { isStatic: true }),
+      Bodies.rectangle(0, height * 2, 800, 1, { isStatic: true }),
+      Bodies.rectangle(width * 2, 0, 1, 1000, { isStatic: true }),
     ]);
     //生成正方体
     let that = this
     var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, that.img.width, that.img.height, {
+      return Bodies.rectangle(x, y, that.img.width * 2, that.img.height * 2, {
         friction: 0.1,
         restitution: 0,
         render: {
@@ -104,6 +113,16 @@ export default {
     // var ground = Bodies.rectangle(500, 500, 1000, 100, { isStatic: true });
     World.add(world, [stack]);
 
+    let myCanvas = document.getElementsByTagName('canvas')[this.img.id]
+    let context = myCanvas.getContext("2d");
+
+    var ratio = this.getPixelRatio(context);
+    myCanvas.style.width = myCanvas.width + 'px';
+    myCanvas.style.height = myCanvas.height + 'px';
+
+    myCanvas.width = myCanvas.width * ratio;
+    myCanvas.height = myCanvas.height * ratio;
+    console.log(myCanvas.style.width);
     this.start(engine.world.gravity)
   },
 };
@@ -118,6 +137,10 @@ export default {
   justify-content: center;
   overflow: hidden;
   position: absolute;
+  canvas {
+    width: 93.5px;
+    height: 126.5px;
+  }
 }
 .mask {
   width: 347px;
