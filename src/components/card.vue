@@ -20,41 +20,25 @@ export default {
   methods: {
     //ios授权
     //捕捉行为动作
-    start (e, contorl) {
+    start () {
       var o = new Orienter();
-      var tip = document.getElementById('tip');
 
       o.onOrient = function (obj) {
 
-        var a, b;
+        // var a, b;
 
-        a = obj.lon < 180 ? obj.lon : obj.lon - 360;
-        b = obj.lat;
+        // a = obj.lon < 180 ? obj.lon : obj.lon - 360;
+        // b = obj.lat;
 
-        a = a > 0 ? a > 30 ? 30 : a : a < -30 ? -30 : a;
-        b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
-        console.log(a, b);
-        //console.log(obj.a, obj.b, obj.g);
-        //e.style.transform = `translate3d(${0}px,${0}px,${0}px)`
-
-        //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
+        // a = a > 0 ? a > 30 ? 30 : a : a < -30 ? -30 : a;
+        // b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
         let tofix = num => num ? Math.abs(num) / num : 0;
 
         let GY = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g
-        this.controlX.x = GX
-        this.controlX.y = GY
-        tip.innerHTML =
-
-          'alpha[左右]:' + obj.a +
-          '<br>' + 'beta[前后]:' + obj.b +
-          '<br>' + 'gamma[扭转]:' + obj.g +
-          '<br>' + 'longitude[纬度]:' + obj.lon +
-          '<br>' + 'latitude[经度]:' + obj.lat +
-          // '<br>' + 'direction:' + obj.dir + 
-          '<br>' + 'a:' + a +
-          '<br>' + 'b:' + b;
-
+        console.log('GX' + -tofix(GX) + 'GY' + tofix(GY));
+        this.controlX.x = -tofix(GX)
+        this.controlX.y = tofix(GY)
       };
 
       o.on();
