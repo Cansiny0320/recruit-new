@@ -78,7 +78,7 @@ export default {
       options: {
         height: height,
         width: width,
-        //wireframes: false,
+        wireframes: false,
         background: 'rgba(255, 255, 255, 0)'
       },
     });
