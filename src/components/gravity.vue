@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-05 10:58:16
+ * @LastEditTime: 2020-09-05 11:04:09
 -->
 
 <template>
@@ -47,13 +47,11 @@ export default {
         //let fabB = Math.abs(b + 20) / (b + 20);
         //console.log(fabA, fabB);
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
-        let tofix = num => Math.abs(num) / num;
-        const ZERO = 0
-        let GX = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? ZERO : obj.b
-        console.log('GX' + tofix(GX));
+        let tofix = num => num ? Math.abs(num) / num : 0;
 
-        let GY = Math.abs(obj.g) < 10 ? ZERO : obj.g
-        console.log('GY' + -tofix(GY));
+        let GX = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
+        let GY = Math.abs(obj.g) < 10 ? 0 : obj.g
+        console.log('GY' + -tofix(GY) + 'GX' + tofix(GX));
         tip.innerHTML =
           'alpha[左右]:' +
           obj.a +
