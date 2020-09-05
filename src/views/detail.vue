@@ -34,7 +34,7 @@ export default {
   components: { card1, card2, card3, card4, card5 },
   data () {
     return {
-      show: false,
+      show: true,
       img: {
         product: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
