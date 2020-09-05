@@ -1,9 +1,10 @@
 <!-- matter.js -->
 <template>
-  <div>
+  <div class="card">
     <div class="mask">
       <div class="box"></div>
       <div class="on"></div>
+      <div class="tip"></div>
     </div>
   </div>
 </template>
@@ -11,6 +12,9 @@
 import Matter from '../../node_modules/matter-js/build/matter.js';
 import Orienter from "../utils/orienter";
 export default {
+  props: {
+    img: Object
+  },
   components: {},
   data () {
     return {
@@ -46,8 +50,7 @@ export default {
     var h = window.innerHeight;
     console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
-    let box = document.querySelector('.box');
-
+    let box = document.querySelectorAll('.box');
     var Engine = Matter.Engine,
       Render = Matter.Render,
       World = Matter.World,
@@ -61,7 +64,7 @@ export default {
     let height = 253;
     let width = 187;
     var render = Render.create({
-      element: box,
+      element: box[this.img.id],
       engine: engine,
       options: {
         height: height,
@@ -85,14 +88,15 @@ export default {
       Bodies.rectangle(width, 0, 1, 1000, { isStatic: true }),
     ]);
     //生成正方体
+    let that = this
     var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, 146, 206, {
+      return Bodies.rectangle(x, y, that.img.width, that.img.height, {
         friction: 0.1,
         restitution: 0,
         render: {
           sprite: {
             texture:
-              "https://s1.ax1x.com/2020/09/04/wAkd4H.png",
+              that.img.src,
           },
         },
       });
@@ -106,24 +110,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 .box {
-  width: 345px;
-  height: 501px;
+  width: 347px;
+  height: 502px;
   z-index: 111;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: absolute;
 }
 .mask {
-  margin-left: 30px;
-  margin-top: 40px;
   width: 347px;
   height: 506px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('../assets/images/detail/design/Overlay Effect - Change Opacity_1@2x.png');
+  //background-image: url('../assets/images/detail/design/Overlay Effect - Change Opacity_1@2x.png');
   background-size: cover;
 }
 
@@ -135,7 +138,13 @@ export default {
   background-size: cover;
   position: absolute;
 }
-.contorl {
-  transform: translateY(1200px);
+.tip {
+  width: 87px;
+  height: 87px;
+  z-index: 998;
+  background-image: url('../assets/images/detail/product/组 12@2x.png');
+  background-size: cover;
+  position: absolute;
+  transform: translateX(103px) translateY(176px);
 }
 </style>

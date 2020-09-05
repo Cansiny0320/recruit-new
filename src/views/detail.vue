@@ -4,19 +4,19 @@
     <div class="top"></div>
     <div class="cards">
       <div class="card1" v-if="!show">
-        <card1 :img="img.product.images" :ids="img.product.ids"></card1>
+        <card1 :img="img.product"></card1>
       </div>
       <div class="card2" v-if="!show">
-        <card2 :img="img.design.images" :ids="img.design.ids"></card2>
+        <card2 :img="img.design"></card2>
       </div>
       <div class="card3" v-if="!show">
-        <card3 :img="img.mobile.images" :ids="img.mobile.ids"></card3>
+        <card3 :img="img.mobile"></card3>
       </div>
       <div class="card4" v-if="!show">
-        <card4 :img="img.web.images" :ids="img.web.ids"></card4>
+        <card4 :img="img.web"></card4>
       </div>
       <div class="card5" v-if="!show">
-        <card5 :img="img.sre.images" :ids="img.sre.ids"></card5>
+        <card5 :img="img.sre"></card5>
       </div>
     </div>
 
@@ -37,28 +37,38 @@ export default {
       show: true,
       img: {
         product: {
-          images: ['product/部门帖子@2x.png', 'product/工程文件1@2x.png', 'product/2@2x.png'],
-          ids: [0, 1, 2]
+          src: 'https://s1.ax1x.com/2020/09/04/wApk1f.png',
+          width: 120,
+          height: 197,
+          id: 0
         },
         design: {
-          images: ['design/图层 682@2x.png', 'design/1png@2x.png', 'design/眼@2x.png'],
-          ids: [3, 4, 5]
+          src: 'https://s1.ax1x.com/2020/09/04/wAFxnf.png',
+          width: 131,
+          height: 188,
+          id: 1
         },
         mobile: {
-          images: ['mobile/图层 682@2x.png', 'mobile/3@2x.png', 'mobile/小人@2x.png'],
-          ids: [6, 7, 8]
+          src: 'https://s1.ax1x.com/2020/09/04/wAkd4H.png',
+          width: 146,
+          height: 206,
+          id: 2
         },
         web: {
-          images: ['web/图层 682@2x.png', 'web/眼@2x.png', 'web/1png@2x.png'],
-          ids: [9, 10, 11]
+          src: 'https://s1.ax1x.com/2020/09/04/wApAc8.png',
+          width: 133,
+          height: 186,
+          id: 3
         },
         sre: {
-          images: ['sre/图层 682_1@2x.png', 'sre/安全@2x.png', 'sre/蛾@2x.png'],
-          ids: [12, 13, 14]
-        }
-      },
+          src: 'https://s1.ax1x.com/2020/09/04/wApF9P.png',
+          width: 128,
+          height: 166,
+          id: 4
+        },
 
-    };
+      }
+    }
   },
   methods: {
 
@@ -112,21 +122,6 @@ $background: 'product/Overlay Effect - Change Opacity@2x',
 //右下角标签
 $tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
   'web/组 12_2@2x', 'sre/组 12_3@2x';
-//部门标签
-$topic-w: '217', '217', '217', '217', '241';
-$topic-h: '132', '132', '132', '132', '78';
-$topic-X: '50', '50', '50', '50', '30';
-$topic-Y: '50', '250', '250', '250', '365';
-//小logo
-$logo-w: '139', '262', '420', '262', '218';
-$logo-h: '107', '265', '420', '265', '226';
-$logo-X: '70', '30', '-40', '30', '50';
-$logo-Y: '330', '100', '0', '100', '115';
-//大logo
-$otherlogo-w: '175', '188', '300', '188', '158';
-$otherlogo-h: '338', '122', '300', '122', '228';
-$otherlogo-X: '110', '95', '16', '95', '125';
-$otherlogo-Y: '100', '170', '166', '170', '145';
 
 .detail {
   width: 750px;
@@ -159,39 +154,20 @@ $otherlogo-Y: '100', '170', '166', '170', '145';
         ::v-deep .card {
           width: 347px;
           height: 506px;
+
           .mask {
-            width: 347px;
-            height: 506px;
-            background-image: url('../assets/images/detail/#{nth($mask,$i)}.png');
-          }
-          .card_ctx {
             width: 335px;
             height: 498px;
             background-image: url('../assets/images/detail/#{nth($background,$i)}.png');
             .tip {
+              width: 87px;
+              height: 87px;
               background-image: url('../assets/images/detail/#{nth($tip,$i)}.png');
             }
-            .topic {
-              position: absolute;
-              width: #{nth($topic-w, $i)}px;
-              height: #{nth($topic-h, $i)}px;
-              transform: translateX(#{nth($topic-X, $i)}px)
-                translateY(#{nth($topic-Y, $i)}px);
-              z-index: 3;
-            }
-            .logo {
-              position: absolute;
-              width: #{nth($logo-w, $i)}px;
-              height: #{nth($logo-h, $i)}px;
-              transform: translateX(#{nth($logo-X, $i)}px)
-                translateY(#{nth($logo-Y, $i)}px);
-            }
-            .otherlogo {
-              position: absolute;
-              width: #{nth($otherlogo-w, $i)}px;
-              height: #{nth($otherlogo-h, $i)}px;
-              transform: translateX(#{nth($otherlogo-X, $i)}px)
-                translateY(#{nth($otherlogo-Y, $i)}px);
+            .on {
+              width: 347px;
+              height: 506px;
+              background-image: url('../assets/images/detail/#{nth($mask,$i)}.png');
             }
           }
         }
