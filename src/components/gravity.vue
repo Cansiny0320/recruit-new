@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-04 23:28:14
+ * @LastEditTime: 2020-09-05 10:52:02
 -->
 
 <template>
@@ -21,18 +21,18 @@ export default {
     id: Number,
   },
   components: {},
-  data() {
+  data () {
     return {};
   },
   methods: {
     //ios授权
     //捕捉行为动作
 
-    start(e) {
+    start (e) {
       var o = new Orienter();
       var tip = document.getElementById('tip');
 
-      o.onOrient = function(obj) {
+      o.onOrient = function (obj) {
         var a, b;
 
         a = obj.lon < 180 ? obj.lon : obj.lon - 360;
@@ -48,14 +48,11 @@ export default {
         //console.log(fabA, fabB);
         //e.style.transform = `rotateX(${b}deg) rotateY(${a}deg)`
         let tofix = num => Math.abs(num) / num;
+        let GX = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
+        console.log('GX' + tofix(GX));
 
-        console.log('obj.a' + tofix(obj.a));
-        console.log('obj.b' + tofix(obj.b));
-        console.log('obj.g' + tofix(obj.g));
-        console.log('obj.lon' + tofix(obj.lon));
-        console.log('obj.lat' + tofix(obj.lat));
-        console.log('a' + tofix(a));
-        console.log('b' + tofix(b));
+        let GY = Math.abs(obj.g) < 10 ? 0 : obj.g
+        console.log('GY' + tofix(GY));
         tip.innerHTML =
           'alpha[左右]:' +
           obj.a +
@@ -84,11 +81,11 @@ export default {
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
+  created () {
     console.log('这里是重力组件');
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted () {
     let img = document.querySelectorAll('.add');
     console.log(img[this.id]);
     this.start(img[this.id]);
