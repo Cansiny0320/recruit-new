@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-05 11:09:47
+ * @LastEditTime: 2020-09-05 11:24:02
 -->
 
 <template>
@@ -86,8 +86,11 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     let img = document.querySelectorAll('.add');
-    console.log(img[this.id]);
+    //console.log(img[this.id]);
     this.start(img[this.id]);
+
+
+
   },
 };
 </script>
