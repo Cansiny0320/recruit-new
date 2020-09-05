@@ -30,7 +30,7 @@ export default {
         let GY = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g
         console.log('GX' + -tofix(GX) + 'GY' + tofix(GY));
-        e.x = -tofix(GX)
+        e.x = tofix(GX)
         e.y = tofix(GY)
       };
 
