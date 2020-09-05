@@ -25,13 +25,6 @@ export default {
 
       o.onOrient = function (obj) {
 
-        // var a, b;
-
-        // a = obj.lon < 180 ? obj.lon : obj.lon - 360;
-        // b = obj.lat;
-
-        // a = a > 0 ? a > 30 ? 30 : a : a < -30 ? -30 : a;
-        // b = b > 0 ? b > 30 ? 30 : b : b < -30 ? -30 : b;
         let tofix = num => num ? Math.abs(num) / num : 0;
 
         let GY = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
@@ -106,6 +99,8 @@ export default {
     });
     // var ground = Bodies.rectangle(500, 500, 1000, 100, { isStatic: true });
     World.add(world, [stack]);
+
+    this.start()
   },
 };
 </script>
