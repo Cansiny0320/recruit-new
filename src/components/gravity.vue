@@ -4,7 +4,7 @@
  * @Author: 林其星
  * @Date: 2020-08-30 10:52:41
  * @LastEditors: 代码是写出来给人看的，附带能在机器上运行
- * @LastEditTime: 2020-09-05 11:04:09
+ * @LastEditTime: 2020-09-05 11:09:47
 -->
 
 <template>
@@ -51,7 +51,7 @@ export default {
 
         let GX = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
         let GY = Math.abs(obj.g) < 10 ? 0 : obj.g
-        console.log('GY' + -tofix(GY) + 'GX' + tofix(GX));
+        console.log('GX' + -tofix(GY) + 'GY' + tofix(GX));
         tip.innerHTML =
           'alpha[左右]:' +
           obj.a +
