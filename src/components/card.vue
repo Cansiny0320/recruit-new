@@ -78,7 +78,7 @@ export default {
       options: {
         height: height,
         width: width,
-        wireframes: false,
+        //wireframes: false,
         background: 'rgba(255, 255, 255, 0)'
       },
     });
@@ -99,9 +99,10 @@ export default {
     //生成正方体
     let that = this
     var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, that.img.width * 2, that.img.height * 2, {
+      return Bodies.rectangle(x, y, that.img.width * 2 + 30, that.img.height * 2 + 50, {
         friction: 0.1,
         restitution: 0,
+        frictionAir: 0.2,
         render: {
           sprite: {
             texture:
@@ -116,7 +117,7 @@ export default {
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id]
     let context = myCanvas.getContext("2d");
 
-    var ratio = this.getPixelRatio(context);
+    let ratio = this.getPixelRatio(context);
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
 

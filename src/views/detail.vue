@@ -34,36 +34,36 @@ export default {
   components: { card1, card2, card3, card4, card5 },
   data () {
     return {
-      show: true,
+      show: false,
       img: {
         product: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
-          width: 120,
-          height: 197,
+          width: 119.5,
+          height: 198.5,
           id: 0
         },
         design: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
           width: 131,
-          height: 188,
+          height: 191.5,
           id: 1
         },
         mobile: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
-          width: 146,
-          height: 206,
+          width: 145.5,
+          height: 206.5,
           id: 2
         },
         web: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
           width: 133,
-          height: 186,
+          height: 182.5,
           id: 3
         },
         sre: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
-          width: 128,
-          height: 166,
+          width: 127.5,
+          height: 162.5,
           id: 4
         },
       }
