@@ -19,8 +19,6 @@
         <card5 :img="img.sre"></card5>
       </div>
     </div>
-
-    <div class="Pop-ups" @click="getGrant" v-if="show">点击体验炫酷重力感应特效</div>
   </div>
 </template>
 
@@ -70,35 +68,6 @@ export default {
     }
   },
   methods: {
-    hello () {
-      console.log('hello');
-    },
-    getGrant () {
-      if (this.is_ios()) {
-        window.DeviceOrientationEvent.requestPermission()
-          .then(state => {
-            switch (state) {
-              case "granted":
-                break;
-              case "denied":
-                alert("你拒绝了使用陀螺仪");
-                break;
-              case "prompt":
-                alert("其他行为");
-                break;
-            }
-          });
-      }
-      this.show = false
-
-    },
-    is_ios () {
-      if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-        return true
-      } else {
-        return false;
-      }
-    },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
