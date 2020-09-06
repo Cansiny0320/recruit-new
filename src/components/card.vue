@@ -5,6 +5,7 @@
       <div class="box"></div>
       <div class="on"></div>
       <div class="tip"></div>
+      <div class="clip"></div>
     </div>
   </div>
 </template>
@@ -57,7 +58,8 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     var w = window.innerWidth;
-    //var h = window.innerHeight;
+    var h = window.innerHeight;
+    console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = document.querySelectorAll('.box');
     var Engine = Matter.Engine,
@@ -78,7 +80,7 @@ export default {
       options: {
         height: height,
         width: width,
-        wireframes: false,
+        //wireframes: false,
         background: 'rgba(255, 255, 255, 0)'
       },
     });
@@ -91,10 +93,10 @@ export default {
     //挂载引擎
     //生成墙壁
     World.add(engine.world, [
-      Bodies.rectangle(0, 0, 800, 1, { isStatic: true }),
-      Bodies.rectangle(0, 0, 1, 1000, { isStatic: true }),
-      Bodies.rectangle(0, height * 2, 800, 1, { isStatic: true }),
-      Bodies.rectangle(width * 2, 0, 1, 1000, { isStatic: true }),
+      Bodies.rectangle(0, 0, 1600, 1, { isStatic: true }),
+      Bodies.rectangle(0, 0, 1, 1600, { isStatic: true }),
+      Bodies.rectangle(0, height * 2, 1600, 1, { isStatic: true }),
+      Bodies.rectangle(width * 2, 0, 1, 1600, { isStatic: true }),
     ]);
     //生成正方体
     let that = this
@@ -137,10 +139,6 @@ export default {
   justify-content: center;
   overflow: hidden;
   position: absolute;
-  canvas {
-    width: 93.5px;
-    height: 126.5px;
-  }
 }
 .mask {
   width: 347px;
@@ -149,7 +147,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  //background-image: url('../assets/images/detail/design/Overlay Effect - Change Opacity_1@2x.png');
   background-size: cover;
 }
 
@@ -169,5 +166,10 @@ export default {
   background-size: cover;
   position: absolute;
   transform: translateX(103px) translateY(176px);
+}
+.clip {
+  width: 76px;
+  height: 103px;
+  background-image: url('../assets/images/detail/图层 677@2x.png');
 }
 </style>
