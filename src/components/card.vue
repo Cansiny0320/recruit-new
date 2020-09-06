@@ -57,8 +57,7 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     var w = window.innerWidth;
-    var h = window.innerHeight;
-    console.log(w, h);
+    //var h = window.innerHeight;
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = document.querySelectorAll('.box');
     var Engine = Matter.Engine,
@@ -70,8 +69,9 @@ export default {
     var engine = Engine.create(),
       world = engine.world;
     //初始化引擎
-    let height = 253;
-    let width = 187;
+    let width = (46.267 / 100) * w;
+    let height = (67.467 / 100) * w;
+    console.log(height, width);
     var render = Render.create({
       element: box[this.img.id],
       engine: engine,

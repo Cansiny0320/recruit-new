@@ -3,19 +3,19 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1" v-if="!show" @click="hello">
+      <div class="card1">
         <card1 :img="img.product"></card1>
       </div>
-      <div class="card2" v-if="!show">
+      <div class="card2">
         <card2 :img="img.design"></card2>
       </div>
-      <div class="card3" v-if="!show">
+      <div class="card3">
         <card3 :img="img.mobile"></card3>
       </div>
-      <div class="card4" v-if="!show">
+      <div class="card4">
         <card4 :img="img.web"></card4>
       </div>
-      <div class="card5" v-if="!show">
+      <div class="card5">
         <card5 :img="img.sre"></card5>
       </div>
     </div>
@@ -32,7 +32,6 @@ export default {
   components: { card1, card2, card3, card4, card5 },
   data () {
     return {
-      show: true,
       img: {
         product: {
           src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
@@ -75,7 +74,6 @@ export default {
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
-    console.log(card1);
   },
 }
 </script>
@@ -143,21 +141,6 @@ $tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
         }
       }
     }
-  }
-  .Pop-ups {
-    height: 200px;
-    width: 400px;
-    border-radius: 10px;
-    color: cornsilk;
-    line-height: 200px;
-    text-align: center;
-    background-color: #2486b9;
-    position: absolute;
-    top: 500px;
-    left: 175px;
-
-    animation: rotate 0.5s linear;
-    z-index: 99;
   }
   @keyframes rotate {
     0% {
