@@ -99,10 +99,10 @@ export default {
     //生成正方体
     let that = this
     var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, that.img.width * 2 + 30, that.img.height * 2 + 50, {
+      return Bodies.rectangle(x, y, that.img.width * 2 + 28, that.img.height * 2 + 40, {
         friction: 0.1,
         restitution: 0,
-        frictionAir: 0.2,
+        frictionAir: 0.15,
         render: {
           sprite: {
             texture:
@@ -111,7 +111,6 @@ export default {
         },
       });
     });
-    // var ground = Bodies.rectangle(500, 500, 1000, 100, { isStatic: true });
     World.add(world, [stack]);
 
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id]

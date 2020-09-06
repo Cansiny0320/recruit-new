@@ -1,7 +1,7 @@
 <!-- 前奏页面 -->
 <template>
   <div class="prelude">
-    <div :class="change ? prelude_img1 : prelude_img2" @click="!change"></div>
+    <div :class="change ? prelude_img1 : prelude_img2" @click="jumpto"></div>
     <div v-show="!change" class="hand"></div>
   </div>
 </template>
@@ -20,8 +20,9 @@ export default {
     };
   },
   methods: {
-    jumpto: () => {
+    jumpto () {
       console.log('onclick');
+      console.log(this);
       if (this.change == true) {
         return
       }
@@ -29,7 +30,9 @@ export default {
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () { },
+  created () {
+    console.log(this.change);
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     setTimeout(() => {
@@ -54,13 +57,25 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
   display: flex;
   justify-content: center;
   overflow: hidden;
-  z-index: 99999;
+  z-index: 999;
   .hand {
     position: absolute;
     width: 78px;
     height: 63px;
+    animation: show 1.5s linear;
+    transform: translateX(240px) translateY(280px);
     background-image: url('../assets/images/loading/hand.png');
     background-size: cover;
+    z-index: 100000;
+  }
+
+  @keyframes show {
+    0% {
+      transform: translateX(200px) translateY(200px);
+    }
+    100% {
+      transform: translateX(120px) translateY(140px);
+    }
   }
 
   .prelude_img1 {
