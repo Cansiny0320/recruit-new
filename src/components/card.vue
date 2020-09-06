@@ -27,18 +27,14 @@ export default {
     //捕捉行为动作
     start (e) {
       var o = new Orienter();
-
       o.onOrient = function (obj) {
-
         let tofix = num => num ? Math.abs(num) / num : 0;
-
         let GY = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g
         console.log('GX' + -tofix(GX) + 'GY' + tofix(GY));
         e.x = tofix(GX)
         e.y = tofix(GY)
       };
-
       o.on();
     },
     getPixelRatio (context) {
@@ -50,7 +46,6 @@ export default {
         context.backingStorePixelRatio || 1;
       return (window.devicePixelRatio || 1) / backingStore;
     }
-
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
@@ -80,7 +75,7 @@ export default {
       options: {
         height: height,
         width: width,
-        //wireframes: false,
+        wireframes: false,
         background: 'rgba(255, 255, 255, 0)'
       },
     });
@@ -125,7 +120,7 @@ export default {
     myCanvas.width = myCanvas.width * ratio;
     myCanvas.height = myCanvas.height * ratio;
     console.log(myCanvas.style.width);
-    this.start(engine.world.gravity)
+    this.start(engine.world.gravity);
   },
 };
 </script>
@@ -149,7 +144,6 @@ export default {
   justify-content: center;
   background-size: cover;
 }
-
 .on {
   width: 360px;
   height: 520px;
@@ -168,8 +162,12 @@ export default {
   transform: translateX(103px) translateY(176px);
 }
 .clip {
+  position: absolute;
   width: 76px;
   height: 103px;
+  z-index: 1000;
   background-image: url('../assets/images/detail/图层 677@2x.png');
+  background-size: cover;
+  transform: translateX(120px) translateY(-200px);
 }
 </style>
