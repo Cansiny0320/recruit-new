@@ -37,9 +37,9 @@ const routes = [
     component: () => import('@views/introduce'),
   },
   {
-    path: '/detail',
-    name: 'detail',
-    component: () => import('@views/detail'),
+    path: '/select',
+    name: 'select',
+    component: () => import('@views/select'),
   },
 ];
 
