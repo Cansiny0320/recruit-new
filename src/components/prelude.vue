@@ -99,7 +99,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       transform: translateX(200px) translateY(200px);
     }
     100% {
-      transform: translateX(120px) translateY(140px);
+      transform: translateX(32vw) translateY(37.333vw);
     }
   }
 
