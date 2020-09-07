@@ -88,7 +88,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     width: 78px;
     height: 63px;
     animation: show 1.5s linear;
-    transform: translateX(240px) translateY(280px);
+    transform: translateX(32vw) translateY(37.333vw);
     background-image: url('../assets/images/loading/hand.png');
     background-size: cover;
     z-index: 100000;
@@ -96,7 +96,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
 
   @keyframes show {
     0% {
-      transform: translateX(200px) translateY(200px);
+      transform: translateX(56vw) translateY(56vw);
     }
     100% {
       transform: translateX(32vw) translateY(37.333vw);

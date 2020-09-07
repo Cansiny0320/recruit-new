@@ -76,9 +76,9 @@ export default {
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     var w = window.innerWidth;
-    var h = window.innerHeight;
+    //var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio()
-    console.log(w, h);
+    //console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = document.querySelectorAll('.box');
     var Engine = Matter.Engine,
@@ -140,7 +140,7 @@ export default {
 
     myCanvas.width = myCanvas.width * ratio;
     myCanvas.height = myCanvas.height * ratio;
-    console.log(myCanvas.style.width);
+    //console.log(myCanvas.style.width);
     this.start(engine.world.gravity);
   },
 };
