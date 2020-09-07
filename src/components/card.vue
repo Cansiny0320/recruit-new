@@ -37,14 +37,37 @@ export default {
       };
       o.on();
     },
-    getPixelRatio (context) {
-      var backingStore = context.backingStorePixelRatio ||
-        context.webkitBackingStorePixelRatio ||
-        context.mozBackingStorePixelRatio ||
-        context.msBackingStorePixelRatio ||
-        context.oBackingStorePixelRatio ||
-        context.backingStorePixelRatio || 1;
-      return (window.devicePixelRatio || 1) / backingStore;
+    getDevicePixelRatio () {
+      var mediaQuery;
+      var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+      if (window.devicePixelRatio !== undefined && !is_firefox) {
+        return window.devicePixelRatio;
+      } else if (window.matchMedia) {
+        mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+          (min--moz-device-pixel-ratio: 1.5),\
+          (-o-min-device-pixel-ratio: 3/2),\
+          (min-resolution: 1.5dppx)";
+        if (window.matchMedia(mediaQuery).matches) {
+          return 1.5;
+        }
+        mediaQuery = "(-webkit-min-device-pixel-ratio: 2),\
+          (min--moz-device-pixel-ratio: 2),\
+          (-o-min-device-pixel-ratio: 2/1),\
+          (min-resolution: 2dppx)";
+        if (window.matchMedia(mediaQuery).matches) {
+          return 2;
+        }
+        mediaQuery = "(-webkit-min-device-pixel-ratio: 0.75),\
+          (min--moz-device-pixel-ratio: 0.75),\
+          (-o-min-device-pixel-ratio: 3/4),\
+          (min-resolution: 0.75dppx)";
+        if (window.matchMedia(mediaQuery).matches) {
+          return 0.7;
+        }
+      } else {
+        return 1;
+      }
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
@@ -54,6 +77,7 @@ export default {
   mounted () {
     var w = window.innerWidth;
     var h = window.innerHeight;
+    let ratio = this.getDevicePixelRatio()
     console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = document.querySelectorAll('.box');
@@ -90,13 +114,13 @@ export default {
     World.add(engine.world, [
       Bodies.rectangle(0, 0, 1600, 1, { isStatic: true }),
       Bodies.rectangle(0, 0, 1, 1600, { isStatic: true }),
-      Bodies.rectangle(0, height * 2, 1600, 1, { isStatic: true }),
-      Bodies.rectangle(width * 2, 0, 1, 1600, { isStatic: true }),
+      Bodies.rectangle(0, height * ratio, 1600, 1, { isStatic: true }),
+      Bodies.rectangle(width * ratio, 0, 1, 1600, { isStatic: true }),
     ]);
     //生成正方体
     let that = this
     var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, that.img.width * 2 + 28, that.img.height * 2 + 40, {
+      return Bodies.rectangle(x, y, that.img.width * ratio + 28, that.img.height * ratio + 40, {
         friction: 0.1,
         restitution: 0,
         frictionAir: 0.15,
@@ -111,9 +135,6 @@ export default {
     World.add(world, [stack]);
 
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id]
-    let context = myCanvas.getContext("2d");
-
-    let ratio = this.getPixelRatio(context);
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
 
@@ -168,6 +189,6 @@ export default {
   z-index: 1000;
   background-image: url('../assets/images/detail/图层 677@2x.png');
   background-size: cover;
-  transform: translateX(120px) translateY(-200px);
+  transform: translateX(130px) translateY(-220px);
 }
 </style>
