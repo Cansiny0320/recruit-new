@@ -78,6 +78,7 @@ export default {
     var w = window.innerWidth;
     //var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio()
+    console.log(ratio);
     //console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = document.querySelectorAll('.box');
@@ -92,7 +93,7 @@ export default {
     //初始化引擎
     let width = (46.267 / 100) * w;
     let height = (67.467 / 100) * w;
-    console.log(height, width);
+    //console.log(height, width);
     var render = Render.create({
       element: box[this.img.id],
       engine: engine,
