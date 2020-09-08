@@ -41,6 +41,11 @@ const routes = [
     name: 'select',
     component: () => import('@views/select'),
   },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: () => import('@views/Detail'),
+  },
 ];
 
 const router = new VueRouter({
