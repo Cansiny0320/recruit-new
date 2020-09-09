@@ -96,7 +96,7 @@ export default {
         that.index++;
         if (this.index == 11) {
           clearInterval(Show);
-          jump("/detail", this)
+          jump("/select", this)
         }
       }, 1000);
     }, 2000);
