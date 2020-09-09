@@ -3,19 +3,19 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1">
+      <div class="card1" @click="toDetail(0)">
         <card1 :img="img.product"></card1>
       </div>
-      <div class="card2">
+      <div class="card2" @click="toDetail(1)">
         <card2 :img="img.design"></card2>
       </div>
-      <div class="card3">
+      <div class="card3" @click="toDetail(2)">
         <card3 :img="img.mobile"></card3>
       </div>
-      <div class="card4">
+      <div class="card4" @click="toDetail(3)">
         <card4 :img="img.web"></card4>
       </div>
-      <div class="card5">
+      <div class="card5" @click="toDetail(4)">
         <card5 :img="img.sre"></card5>
       </div>
     </div>
@@ -29,52 +29,58 @@ import card3 from "../components/card"
 import card4 from "../components/card"
 import card5 from "../components/card"
 export default {
-  components: { card1, card2, card3, card4, card5 },
-  data () {
-    return {
-      img: {
-        product: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
-          width: 119.5,
-          height: 198.5,
-          id: 0
-        },
-        design: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
-          width: 131,
-          height: 191.5,
-          id: 1
-        },
-        mobile: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
-          width: 145.5,
-          height: 206.5,
-          id: 2
-        },
-        web: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
-          width: 133,
-          height: 182.5,
-          id: 3
-        },
-        sre: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
-          width: 127.5,
-          height: 162.5,
-          id: 4
-        },
-      }
-    }
-  },
-  methods: {
-  },
-  //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
+    components: { card1, card2, card3, card4, card5 },
+    data() {
+        return {
+            img: {
+                product: {
+                    src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
+                    width: 119.5,
+                    height: 198.5,
+                    id: 0
+                },
+                design: {
+                    src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
+                    width: 131,
+                    height: 191.5,
+                    id: 1
+                },
+                mobile: {
+                    src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
+                    width: 145.5,
+                    height: 206.5,
+                    id: 2
+                },
+                web: {
+                    src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
+                    width: 133,
+                    height: 182.5,
+                    id: 3
+                },
+                sre: {
+                    src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
+                    width: 127.5,
+                    height: 162.5,
+                    id: 4
+                },
+            }
+        }
+    },
+    methods: {
+        toDetail(index) {
+            this.$router.push({
+                path: '/detail',
+                query: { index }
+            })
+        }
+    },
+    //生命周期 - 创建完成（可以访问当前this实例）
+    created() {
 
-  },
-  //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
-  },
+    },
+    //生命周期 - 挂载完成（可以访问DOM元素）
+    mounted() {
+    },
 }
 </script>
 <style lang='scss' scoped>

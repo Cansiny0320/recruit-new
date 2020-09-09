@@ -1,19 +1,31 @@
 <template>
   <div class="detail">
-    <Detail className="mobile" :words="mobile" v-show="false" />
-    <Detail className="design" :words="design" v-show="false" />
-    <Detail className="product" :words="product" v-show="false" />
-    <Detail className="web" :words="web" v-show="false" />
-    <Detail className="sre" :words="sre" v-show="true" />
+    <swiper ref="mySwiper" :options="swiperOptions" class="swiper">
+      <swiper-slide>
+        <Detail className="product" :words="product" />
+      </swiper-slide>
+      <swiper-slide><Detail className="design" :words="design" /></swiper-slide>
+      <swiper-slide><Detail className="mobile" :words="mobile" /></swiper-slide>
+      <swiper-slide><Detail className="web" :words="web" /></swiper-slide>
+      <swiper-slide><Detail className="sre" :words="sre" /></swiper-slide>
+    </swiper>
   </div>
 </template>
 
 <script>
 import Detail from '@components/Detail'
+import { Swiper, SwiperSlide, } from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
 export default {
-    components: { Detail },
+    components: {
+        Detail, Swiper,
+        SwiperSlide
+    },
     data() {
         return {
+            swiperOptions: {
+
+            },
             mobile: [
                 '良好的代码编写规范',
                 '框架设计与方案运用能力',
@@ -50,6 +62,15 @@ export default {
                 'Python等语言的使用',
             ]
         }
+    },
+    computed: {
+        swiper() {
+            return this.$refs.mySwiper.$swiper
+        }
+    },
+    mounted() {
+        const index = this.$route.query.index
+        this.swiper.slideTo(index, 1000, false)
     }
 }
 </script>
@@ -60,13 +81,18 @@ export default {
   src: url('../assets/font-style/AliHYAiHei.ttf');
 }
 .detail {
+  width: 100%;
+  height: 100%;
+  .swiper {
+    height: 100%;
+  }
   .mobile,
   .design,
   .product,
   .web,
   .sre {
     width: 100%;
-    height: 1206px;
+    height: 100%;
     position: relative;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -127,6 +153,7 @@ export default {
     left: 0;
     .item {
       margin-bottom: 15px;
+      list-style: none;
       .content {
         display: inline-block;
         background-size: 100% 100%;
