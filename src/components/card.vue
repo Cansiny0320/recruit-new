@@ -20,6 +20,7 @@ export default {
   data () {
     return {
       controlX: {},
+      orienter: {}
     };
   },
   methods: {
@@ -39,6 +40,7 @@ export default {
         e.y = tofix(GY)
       };
       o.on();
+      this.orienter = o
     },
     /**
      * @description: 获取设备像素比
@@ -150,6 +152,9 @@ export default {
     //console.log(myCanvas.style.width);
     this.start(engine.world.gravity);
   },
+  beforeDestroy () {
+    this.orienter.off()
+  }
 };
 </script>
 <style lang="scss" scoped>
