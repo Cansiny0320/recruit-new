@@ -15,7 +15,7 @@
       </ul>
     </div>
     <div class="apply">
-      <div class="apply-btn"></div>
+      <div class="apply-btn" @click="toApply"></div>
     </div>
   </div>
 </template>
@@ -32,7 +32,12 @@ export default {
       required: true,
     }
 
-  }
+  },
+  methods: {
+    toApply() {
+      this.$router.push('/apply')
+    }
+  },
 }
 </script>
 
