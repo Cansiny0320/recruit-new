@@ -29,6 +29,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@font-face {
+  font-family: 'FZJLJW';
+  src: url('../assets/font-style/FZJLJW.ttf');
+}
 .apply {
   width: 100%;
   height: 100%;
@@ -73,6 +77,7 @@ export default {
       color: #fff;
       margin-bottom: 70px;
       align-items: center;
+      font-family: 'FZJLJW';
       .copy {
         width: 162px;
         height: 60px;
