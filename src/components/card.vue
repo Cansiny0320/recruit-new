@@ -11,84 +11,88 @@
 </template>
 <script>
 import Matter from '../../node_modules/matter-js/build/matter.js';
-import Orienter from "../utils/orienter";
+import Orienter from '../utils/orienter';
 export default {
   props: {
-    img: Object
+    img: Object,
   },
   components: {},
-  data () {
+  data() {
     return {
       controlX: {},
-      orienter: {}
+      orienter: {},
     };
   },
   methods: {
     /**
      * @description: 相应设备中重力，并在matter.js中的重力控制对象中做出反应
      * @param {object} e 重力感应对象
-     * @return {} 
+     * @return {}
      */
-    start (e) {
+    start(e) {
       var o = new Orienter();
-      o.onOrient = function (obj) {
-        let tofix = num => num ? Math.abs(num) / num : 0;
-        let GY = (Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170) ? 0 : obj.b
-        let GX = Math.abs(obj.g) < 10 ? 0 : obj.g
+      o.onOrient = function(obj) {
+        let tofix = num => (num ? Math.abs(num) / num : 0);
+        let GY = Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170 ? 0 : obj.b;
+        let GX = Math.abs(obj.g) < 10 ? 0 : obj.g;
         console.log('GX' + -tofix(GX) + 'GY' + tofix(GY));
-        e.x = tofix(GX)
-        e.y = tofix(GY)
+        e.x = tofix(GX);
+        e.y = tofix(GY);
       };
       o.on();
-      this.orienter = o
+      this.orienter = o;
     },
     /**
      * @description: 获取设备像素比
-     * @param {} 
+     * @param {}
      * @return {Number} ratio 设备像素比
      */
-    getDevicePixelRatio () {
+    getDevicePixelRatio() {
       var mediaQuery;
-      var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+      var is_firefox =
+        navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
       if (window.devicePixelRatio !== undefined && !is_firefox) {
         return window.devicePixelRatio;
       } else if (window.matchMedia) {
-        mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+        mediaQuery =
+          '(-webkit-min-device-pixel-ratio: 1.5),\
           (min--moz-device-pixel-ratio: 1.5),\
           (-o-min-device-pixel-ratio: 3/2),\
-          (min-resolution: 1.5dppx)";
+          (min-resolution: 1.5dppx)';
         if (window.matchMedia(mediaQuery).matches) {
           return 1.5;
         }
-        mediaQuery = "(-webkit-min-device-pixel-ratio: 2),\
+        mediaQuery =
+          '(-webkit-min-device-pixel-ratio: 2),\
           (min--moz-device-pixel-ratio: 2),\
           (-o-min-device-pixel-ratio: 2/1),\
-          (min-resolution: 2dppx)";
+          (min-resolution: 2dppx)';
         if (window.matchMedia(mediaQuery).matches) {
           return 2;
         }
-        mediaQuery = "(-webkit-min-device-pixel-ratio: 0.75),\
+        mediaQuery =
+          '(-webkit-min-device-pixel-ratio: 0.75),\
           (min--moz-device-pixel-ratio: 0.75),\
           (-o-min-device-pixel-ratio: 3/4),\
-          (min-resolution: 0.75dppx)";
+          (min-resolution: 0.75dppx)';
         if (window.matchMedia(mediaQuery).matches) {
           return 0.7;
         }
       } else {
         return 1;
       }
-    }
+    },
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
+  mounted() {
     var w = window.innerWidth;
     //var h = window.innerHeight;
-    let ratio = this.getDevicePixelRatio()
+    let ratio = this.getDevicePixelRatio();
     //console.log(ratio);
     //console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
-    let box = this.$refs.matter
+    let box = this.$refs.matter;
 
     var Engine = Matter.Engine,
       Render = Matter.Render,
@@ -109,10 +113,9 @@ export default {
         height: height,
         width: width,
         wireframes: false,
-        background: 'rgba(255, 255, 255, 0)'
+        background: 'rgba(255, 255, 255, 0)',
       },
     });
-
 
     this.controlX = engine.world.gravity;
 
@@ -127,23 +130,28 @@ export default {
       Bodies.rectangle(width * ratio, 0, 1, 1600, { isStatic: true }),
     ]);
     //生成正方体
-    let that = this
-    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, that.img.width * ratio + 28, that.img.height * ratio + 40, {
-        friction: 0.1,
-        restitution: 0,
-        frictionAir: 0.15,
-        render: {
-          sprite: {
-            texture:
-              that.img.src,
+    let that = this;
+    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function(x, y) {
+      return Bodies.rectangle(
+        x,
+        y,
+        that.img.width * ratio + 28,
+        that.img.height * ratio + 40,
+        {
+          friction: 0.1,
+          restitution: 0,
+          frictionAir: 0.15,
+          render: {
+            sprite: {
+              texture: that.img.src,
+            },
           },
         },
-      });
+      );
     });
     World.add(world, [stack]);
 
-    let myCanvas = document.getElementsByTagName('canvas')[this.img.id]
+    let myCanvas = document.getElementsByTagName('canvas')[this.img.id];
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
 
@@ -152,9 +160,10 @@ export default {
     //console.log(myCanvas.style.width);
     this.start(engine.world.gravity);
   },
-  beforeDestroy () {
-    this.orienter.off()
-  }
+  destroyed() {
+    console.log(this.orienter);
+    this.orienter.off();
+  },
 };
 </script>
 <style lang="scss" scoped>
