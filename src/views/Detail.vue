@@ -70,7 +70,7 @@ export default {
   },
   mounted() {
     const index = this.$route.query.index
-    this.swiper.slideTo(index, 1000, false)
+    this.swiper.slideTo(index, 10, false)
   }
 }
 </script>
