@@ -151,6 +151,7 @@ export default {
     width: 100%;
     bottom: 0;
     left: 0;
+    z-index: 20;
     .item {
       margin-bottom: 15px;
       list-style: none;
