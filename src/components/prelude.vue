@@ -172,378 +172,130 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     }
     &::before {
       content: '';
-      animation: glitch-two 3s infinite 1s step-end;
+      animation: glitch-one 3s infinite 1s step-end;
       z-index: 2;
     }
     z-index: 999999999999;
   }
   @keyframes glitch-one {
-    3% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    6% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    9% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    12% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    10% {
+      transform: translateX(-11px);
+      clip-path: inset(29px 0 164px);
     }
     15% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+      transform: translateX(70px);
+      clip-path: inset(55px 0 70px);
     }
-    18% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    20% {
+      transform: translateX(-95px);
+      clip-path: inset(159px 0 128px);
     }
-    21% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    24% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    27% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    25% {
+      transform: translateX(8px);
+      clip-path: inset(111px 0 70px);
     }
     30% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+      transform: translateX(-45px);
+      clip-path: inset(159px 0 52px);
     }
-    33% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    35% {
+      transform: translateX(177px);
+      clip-path: inset(80px 0 110px);
     }
-    36% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    39% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      opacity: 0;
-    }
-    42% {
-      opacity: 0.5;
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      filter: hue-rotate(90deg) saturate(1.3);
+    40% {
+      transform: translateX(-14px);
+      clip-path: inset(57px 0 180px);
     }
     45% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      filter: invert(1);
+      transform: translateX(52px);
+      clip-path: inset(80px 0 17px);
     }
-
-    48% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    50% {
+      transform: translateX(-106px);
+      clip-path: inset(40px 0 19px);
     }
-    51% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-    }
-    54% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.2);
-    }
-    57% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.3);
-      filter: invert(0);
+    55% {
+      transform: translateX(129px);
+      clip-path: inset(105px 0 71px);
     }
     60% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
+      transform: translateX(-56px);
+      clip-path: inset(187px 0 55px);
     }
-    63% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.2);
-      filter: none;
+    65% {
+      transform: translateX(2px);
+      clip-path: inset(141px 0 141px);
     }
-    66% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.3);
-    }
-    69% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-    }
-    72% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    70% {
+      transform: translateX(-65px);
+      clip-path: inset(83px 0 60px);
     }
     75% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.2);
+      transform: translateX(630px);
+      clip-path: inset(55px 0 70px);
     }
-    78% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
+    80% {
+      transform: translateX(-53px);
+      clip-path: inset(143px 0 92px);
     }
-    81% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-    }
-    84% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-    }
-    87% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.3);
-      filter: hue-rotate(90deg) saturate(1.3);
+    85% {
+      transform: translateX(30px);
+      clip-path: inset(35px 0 170px);
     }
     90% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-      filter: none;
+      transform: translateX(-34px);
+      clip-path: inset(92px 0 153px);
     }
-    93% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-      filter: none;
-    }
-    96% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-      filter: none;
-    }
-    99% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(150, 30)}px 0 #{randomNum(150, 30)}px);
-      transform: scale(1.1);
-      filter: none;
+    95% {
+      transform: translateX(-43px);
+      clip-path: inset(155px 0 40px);
     }
     100% {
-      background-image: none;
+      transform: translateX(42px);
+      clip-path: inset(135px 0 108px);
     }
   }
 
   @keyframes glitch-two {
+    10% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
+    }
     20% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
     }
-    20.5% {
+    30% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
     }
-    21% {
+    40% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    21.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    22% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    22.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    23% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    23.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    24% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    24.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    25% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    25.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    26% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      opacity: 0;
-    }
-    45% {
-      opacity: 0.3;
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      filter: hue-rotate(45deg) saturate(1.1);
-    }
-    45.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      filter: invert(1.2);
-    }
-
-    46% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-    }
-    46.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.2);
-    }
-    47% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.3);
-    }
-    47.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.1);
-      filter: invert(1.1);
-    }
-    48% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.2);
-    }
-    48.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.2);
-      filter: none;
-    }
-    49% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.3);
-    }
-    49.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.1);
     }
     50% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
     }
-    50.5% {
-      transform: translateX(#{randomNum(100, -50)}px);
-      clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.4);
-    }
-    51% {
+    60% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
     }
-    51.5% {
+    70% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
     }
-    52% {
+    80% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.1);
     }
-    52.5% {
+    90% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.3);
-      filter: hue-rotate(150deg) saturate(1.3);
     }
-    54% {
+    100% {
       transform: translateX(#{randomNum(100, -50)}px);
       clip-path: inset(#{randomNum(180)}px 0 #{randomNum(180)}px);
-      transform: scale(1.1);
-      filter: none;
-    }
-    54% {
-      background-image: none;
-    }
-  }
-
-  @keyframes main-img-hide {
-    5% {
-      filter: invert(1);
-    }
-    5.2% {
-      filter: none;
-    }
-    10% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    11% {
-      filter: none;
-      opacity: 1;
-    }
-    45% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    46% {
-      filter: none;
-      opacity: 1;
-    }
-    53.5% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    54% {
-      filter: none;
-      opacity: 1;
-    }
-    54.5% {
-      opacity: 0.5;
-      filter: hue-rotate(30deg);
-    }
-    55% {
-      filter: none;
-    }
-    55.5% {
-      background-image: none;
-      filter: none;
-      opacity: 1;
-    }
-    56% {
-      opacity: 0.5;
-    }
-    56.5% {
-      background-image: none;
-    }
-    57% {
-      opacity: 0.8;
-    }
-    57.5% {
-      opacity: 0.3;
-    }
-    58% {
-      background-image: none;
     }
   }
 }
