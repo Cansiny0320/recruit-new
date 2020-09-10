@@ -17,61 +17,61 @@ import Detail from '@components/Detail'
 import { Swiper, SwiperSlide, } from 'vue-awesome-swiper'
 import 'swiper/swiper-bundle.css'
 export default {
-    components: {
-        Detail, Swiper,
-        SwiperSlide
-    },
-    data() {
-        return {
-            swiperOptions: {
+  components: {
+    Detail, Swiper,
+    SwiperSlide
+  },
+  data() {
+    return {
+      swiperOptions: {
 
-            },
-            mobile: [
-                '良好的代码编写规范',
-                '框架设计与方案运用能力',
-                '构建和交付工具的使用',
-                '进行性能优化的能力',
-                'Kotlin,OC等语言的使用',
-            ],
-            design: [
-                '良好的设计审美素养',
-                '严谨的视觉设计规范',
-                '天马行空的视觉创意',
-                '产品视觉设计的能力',
-                'PS、C4D等软件的使用',
-            ],
-            product: [
-                '更多观察产品的视角',
-                '产品设计规划的能力',
-                '对用户和需求的敏锐洞察',
-                'Pr、Axure等软件的使用',
-                '严谨的逻辑思维能力',
-            ],
-            web: [
-                '架构、设计模式的理解',
-                '丰富的开源框架使用能力',
-                '优化性能,改善体验的方法',
-                '网站开发与数据支持的能力',
-                'JS和GO等语言的使用',
-            ],
-            sre: [
-                '搭建基础服务和底层服务',
-                '网络安全的相关技能',
-                '操作系统的相关知识',
-                '服务器,网站建设的知识',
-                'Python等语言的使用',
-            ]
-        }
-    },
-    computed: {
-        swiper() {
-            return this.$refs.mySwiper.$swiper
-        }
-    },
-    mounted() {
-        const index = this.$route.query.index
-        this.swiper.slideTo(index, 1000, false)
+      },
+      mobile: [
+        '良好的代码编写规范',
+        '框架设计与方案运用能力',
+        '构建和交付工具的使用',
+        '进行性能优化的能力',
+        'Kotlin,OC等语言的使用',
+      ],
+      design: [
+        '良好的设计审美素养',
+        '严谨的视觉设计规范',
+        '天马行空的视觉创意',
+        '产品视觉设计的能力',
+        'PS、C4D等软件的使用',
+      ],
+      product: [
+        '更多观察产品的视角',
+        '产品设计规划的能力',
+        '对用户和需求的敏锐洞察',
+        'Pr、Axure等软件的使用',
+        '严谨的逻辑思维能力',
+      ],
+      web: [
+        '架构、设计模式的理解',
+        '丰富的开源框架使用能力',
+        '优化性能,改善体验的方法',
+        '网站开发与数据支持的能力',
+        'JS和GO等语言的使用',
+      ],
+      sre: [
+        '搭建基础服务和底层服务',
+        '网络安全的相关技能',
+        '操作系统的相关知识',
+        '服务器,网站建设的知识',
+        'Python等语言的使用',
+      ]
     }
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
+  mounted() {
+    const index = this.$route.query.index
+    this.swiper.slideTo(index, 10, false)
+  }
 }
 </script>
 
@@ -151,6 +151,7 @@ export default {
     width: 100%;
     bottom: 0;
     left: 0;
+    z-index: 20;
     .item {
       margin-bottom: 15px;
       list-style: none;
