@@ -2,7 +2,7 @@
 <template>
   <div class="card">
     <div class="mask">
-      <div class="box"></div>
+      <div class="box" ref="matter"></div>
       <div class="on"></div>
       <div class="tip"></div>
       <div class="clip"></div>
@@ -23,8 +23,11 @@ export default {
     };
   },
   methods: {
-    //ios授权
-    //捕捉行为动作
+    /**
+     * @description: 相应设备中重力，并在matter.js中的重力控制对象中做出反应
+     * @param {object} e 重力感应对象
+     * @return {} 
+     */
     start (e) {
       var o = new Orienter();
       o.onOrient = function (obj) {
@@ -37,6 +40,11 @@ export default {
       };
       o.on();
     },
+    /**
+     * @description: 获取设备像素比
+     * @param {} 
+     * @return {Number} ratio 设备像素比
+     */
     getDevicePixelRatio () {
       var mediaQuery;
       var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -70,18 +78,16 @@ export default {
       }
     }
   },
-  //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
-  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     var w = window.innerWidth;
     //var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio()
-    console.log(ratio);
+    //console.log(ratio);
     //console.log(w, h);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
-    let box = document.querySelectorAll('.box');
+    let box = this.$refs.matter
+
     var Engine = Matter.Engine,
       Render = Matter.Render,
       World = Matter.World,
@@ -95,7 +101,7 @@ export default {
     let height = (67.467 / 100) * w;
     //console.log(height, width);
     var render = Render.create({
-      element: box[this.img.id],
+      element: box,
       engine: engine,
       options: {
         height: height,
