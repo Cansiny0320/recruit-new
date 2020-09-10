@@ -22,17 +22,17 @@
 
 <script>
 export default {
-    props: {
-        className: {
-            required: true,
-            type: String
-        },
-        words: {
-            type: Array,
-            required: true,
-        }
-
+  props: {
+    className: {
+      required: true,
+      type: String
+    },
+    words: {
+      type: Array,
+      required: true,
     }
+
+  }
 }
 </script>
 
