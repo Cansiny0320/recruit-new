@@ -55,6 +55,8 @@ export default {
   }
   .scan {
     margin-top: 98px;
+    position: relative;
+    z-index: 20;
     .img {
       width: 491px;
       height: 682px;
