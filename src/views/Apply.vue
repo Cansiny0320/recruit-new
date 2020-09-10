@@ -73,11 +73,12 @@ export default {
     justify-content: flex-end;
     .item {
       display: flex;
-      font-size: 50px;
+      font-size: 54px;
       color: #fff;
       margin-bottom: 70px;
       align-items: center;
       font-family: 'FZJLJW';
+      padding: 0 36px;
       .copy {
         width: 162px;
         height: 60px;
