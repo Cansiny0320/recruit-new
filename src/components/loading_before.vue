@@ -1,7 +1,7 @@
 <!-- 加载前置动画 -->
 <template>
   <div class="loadingbefore">
-    <div :class="show ? '' : `loading_tv`" src="../assets/images/loading/Texteffects@2x.png"></div>
+    <div :class="show ? '' : loading_tv" src="../assets/images/loading/Texteffects@2x.png"></div>
     <div class="loading_txt">
       <type1 :typetxt="loadingtxt[0].txt" :time="time" v-if="index == loadingtxt[0].id"></type1>
       <type2 :typetxt="loadingtxt[1].txt" :time="time" v-if="index == loadingtxt[1].id"></type2>
@@ -15,6 +15,7 @@ import type1 from '@components/type.vue';
 import type2 from '@components/type.vue';
 import type3 from '@components/type.vue';
 import jump from '../utils/jump';
+import judgeClient from "../utils/judgeClient"
 export default {
   components: { type1, type2, type3 },
   data () {
@@ -25,16 +26,23 @@ export default {
           id: 0,
         },
         { txt: '同时，一个名不见经传的小组织“红岩网校工作站“诞生。', id: 1 },
-        { txt: '今天，互联网蓬勃发展，深刻地触入在我们的生活中。', id: 2 },
+        { txt: '今天，互联网蓬勃发展，深刻地融入在我们的生活中。', id: 2 },
       ],
       index: -1,
       time: 100,
       show: true,
+      loading_tv: 'loading_tv'
     };
   },
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () { },
+  created () {
+    if (judgeClient() == 'ios') {
+      this.loading_tv = 'loading_tv_ios'
+    } else {
+      this.loading_tv = 'loading_tv'
+    }
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
     setTimeout(() => {
@@ -89,6 +97,40 @@ export default {
       content: '';
       animation: glitch-two 2s infinite step-end;
       animation-delay: 1s;
+      z-index: 200;
+    }
+  }
+  .loading_tv_ios {
+    width: 182px;
+    height: 161px;
+    position: relative;
+    margin-top: 346px;
+    margin-bottom: 51px;
+    background-image: url('../assets/images/loading/Texteffects@2x.png');
+    background-size: cover;
+    &::before {
+      position: absolute;
+      width: 182px;
+      height: 161px;
+      background: inherit;
+    }
+    &::after {
+      position: absolute;
+      width: 182px;
+      height: 161px;
+      background: inherit;
+    }
+
+    &::after {
+      content: '';
+      //animation: glitch-one 2s infinite step-end;
+      animation-delay: 1s;
+      z-index: 200;
+    }
+    &::before {
+      content: '';
+      //animation: glitch-two 2s infinite step-end;
+      //animation-delay: 1s;
       z-index: 200;
     }
   }

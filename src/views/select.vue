@@ -34,31 +34,31 @@ export default {
     return {
       img: {
         product: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
+          src: 'https://gitee.com/cansiny0320/file-bed/raw/master/20200911-142717-0654.png',
           width: 119.5,
           height: 198.5,
           id: 0
         },
         design: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
+          src: 'https://gitee.com/cansiny0320/file-bed/raw/master/20200911-142317-0183.png',
           width: 131,
           height: 191.5,
           id: 1
         },
         mobile: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
+          src: 'https://gitee.com/cansiny0320/file-bed/raw/master/20200911-142517-0542.png',
           width: 145.5,
           height: 206.5,
           id: 2
         },
         web: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
+          src: 'https://gitee.com/cansiny0320/file-bed/raw/master/20200911-142018-0477.png',
           width: 133,
           height: 182.5,
           id: 3
         },
         sre: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
+          src: 'https://gitee.com/cansiny0320/file-bed/raw/master/20200911-142117-0405.png',
           width: 127.5,
           height: 162.5,
           id: 4
