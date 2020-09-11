@@ -190,8 +190,8 @@ export default {
       background-image: url('../assets/images/intro-detail/mobile/plus.png');
     }
     .logo {
-      width: 503px;
-      height: 593px;
+      width: calc(503px * 1.1);
+      height: calc(593px * 1.1);
       top: 202px;
       background-image: url('../assets/images/intro-detail/mobile/logo.png');
     }
@@ -225,8 +225,8 @@ export default {
       background-image: url('../assets/images/intro-detail/design/plus.png');
     }
     .logo {
-      width: 643px;
-      height: 512px;
+      width: calc(643px * 1);
+      height: calc(512px * 1);
       top: 234px;
       background-image: url('../assets/images/intro-detail/design/logo.png');
     }
@@ -295,8 +295,8 @@ export default {
       background-image: url('../assets/images/intro-detail/web/plus.png');
     }
     .logo {
-      width: 634px;
-      height: 517px;
+      width: calc(634px * 1.1);
+      height: calc(517px * 1.1);
       top: 265px;
       background-image: url('../assets/images/intro-detail/web/logo.png');
     }
@@ -330,8 +330,8 @@ export default {
       background-image: url('../assets/images/intro-detail/sre/plus.png');
     }
     .logo {
-      width: 540px;
-      height: 551px;
+      width: calc(540px * 1.1);
+      height: calc(551px * 1.1);
       top: 256px;
       background-image: url('../assets/images/intro-detail/sre/logo.png');
       transform: translateX(-42%);
