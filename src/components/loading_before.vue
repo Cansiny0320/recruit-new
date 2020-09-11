@@ -123,14 +123,14 @@ export default {
 
     &::after {
       content: '';
-      //animation: glitch-one 2s infinite step-end;
+      animation: glitch-three 2s infinite step-end;
       animation-delay: 1s;
       z-index: 200;
     }
     &::before {
       content: '';
-      //animation: glitch-two 2s infinite step-end;
-      //animation-delay: 1s;
+      animation: glitch-four 2s infinite step-end;
+      animation-delay: 1s;
       z-index: 200;
     }
   }
@@ -450,63 +450,123 @@ export default {
       background-image: none;
     }
   }
+  @keyframes glitch-three {
+    3% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
 
-  @keyframes main-img-hide {
-    5% {
-      filter: invert(1);
+    9% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
     }
-    5.2% {
+
+    18% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    30% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    39% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      opacity: 0;
+    }
+
+    51% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    60% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    69% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+    78% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    90% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
       filter: none;
     }
-    10% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    11% {
-      filter: none;
-      opacity: 1;
-    }
-    45% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    46% {
-      filter: none;
-      opacity: 1;
-    }
-    53.5% {
-      opacity: 0.5;
-      filter: grayscale(1);
-    }
-    54% {
-      filter: none;
-      opacity: 1;
-    }
-    54.5% {
-      opacity: 0.5;
-      filter: hue-rotate(30deg);
-    }
-    55% {
-      filter: none;
-    }
-    55.5% {
+
+    100% {
       background-image: none;
+    }
+  }
+  @keyframes glitch-four {
+    3% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    9% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    18% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    30% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    39% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      opacity: 0;
+    }
+
+    51% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    60% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    69% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+    78% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    90% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
       filter: none;
-      opacity: 1;
     }
-    56% {
-      opacity: 0.5;
-    }
-    56.5% {
-      background-image: none;
-    }
-    57% {
-      opacity: 0.8;
-    }
-    57.5% {
-      opacity: 0.3;
-    }
-    58% {
+
+    100% {
       background-image: none;
     }
   }

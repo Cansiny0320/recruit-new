@@ -133,12 +133,12 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
 
     &::after {
       content: '';
-      //animation: glitch-one 3s infinite step-end;
+      animation: glitch-three 3s infinite step-end;
       z-index: 2;
     }
     &::before {
       content: '';
-      // animation: glitch-two 3s infinite 1s step-end;
+      animation: glitch-four 3s infinite 1s step-end;
       z-index: 2;
     }
     z-index: 99999;
@@ -560,6 +560,126 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       filter: none;
     }
     54% {
+      background-image: none;
+    }
+  }
+  @keyframes glitch-three {
+    3% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    9% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    18% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    30% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    39% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      opacity: 0;
+    }
+
+    51% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    60% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    69% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+    78% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    90% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+      filter: none;
+    }
+
+    100% {
+      background-image: none;
+    }
+  }
+  @keyframes glitch-four {
+    3% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    9% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    18% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    30% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    39% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      opacity: 0;
+    }
+
+    51% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    60% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+
+    69% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+    }
+    78% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+    }
+
+    90% {
+      transform: translateX(#{randomNum(100, -50)}px);
+      clip-path: inset(#{randomNum(60, 20)}px 0 #{randomNum(100, 20)}px);
+      transform: scale(1.1);
+      filter: none;
+    }
+
+    100% {
       background-image: none;
     }
   }
