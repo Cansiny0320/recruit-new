@@ -8,6 +8,7 @@
 
 <script>
 import jump from '../utils/jump';
+import judgeClient from '../utils/judgeClient'
 export default {
   components: {},
   data () {
@@ -56,7 +57,10 @@ export default {
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created () {
-    console.log(this.change);
+    if (judgeClient() == 'ios') {
+      this.prelude_img1 = 'prelude_img1_ios'
+      this.prelude_img2 = 'prelude_img2_ios'
+    }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
@@ -102,7 +106,80 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       transform: translateX(32vw) translateY(37.333vw);
     }
   }
+  .prelude_img1_ios {
+    position: relative;
+    width: 488px;
+    height: 223px;
+    z-index: 1000;
+    background-image: url($img1);
+    background-size: cover;
 
+    &::before {
+      position: absolute;
+      width: 488px;
+      height: 223px;
+      top: 0;
+      left: 0;
+      background: inherit;
+    }
+    &::after {
+      position: absolute;
+      width: 488px;
+      height: 223px;
+      top: 0;
+      left: 0;
+      background: inherit;
+    }
+
+    &::after {
+      content: '';
+      //animation: glitch-one 3s infinite step-end;
+      z-index: 2;
+    }
+    &::before {
+      content: '';
+      // animation: glitch-two 3s infinite 1s step-end;
+      z-index: 2;
+    }
+    z-index: 99999;
+  }
+  .prelude_img2_ios {
+    position: relative;
+    width: 488px;
+    height: 223px;
+
+    background-image: url($img2);
+    background-size: cover;
+
+    &::before {
+      position: absolute;
+      width: 488px;
+      height: 223px;
+      top: 0;
+      left: 0;
+      background: inherit;
+    }
+    &::after {
+      position: absolute;
+      width: 488px;
+      height: 223px;
+      top: 0;
+      left: 0;
+      background: inherit;
+    }
+
+    &::after {
+      content: '';
+      //animation: glitch-one 3s infinite step-end;
+      z-index: 2;
+    }
+    &::before {
+      content: '';
+      //animation: glitch-one 3s infinite 1s step-end;
+      z-index: 2;
+    }
+    z-index: 999;
+  }
   .prelude_img1 {
     position: relative;
     width: 488px;
