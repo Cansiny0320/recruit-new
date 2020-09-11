@@ -17,7 +17,7 @@ export default {
     img: Object,
   },
   components: {},
-  data() {
+  data () {
     return {
       controlX: {},
       orienter: {},
@@ -29,9 +29,9 @@ export default {
      * @param {object} e 重力感应对象
      * @return {}
      */
-    start(e) {
+    start (e) {
       var o = new Orienter();
-      o.onOrient = function(obj) {
+      o.onOrient = function (obj) {
         let tofix = num => (num ? Math.abs(num) / num : 0);
         let GY = Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170 ? 0 : obj.b;
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g;
@@ -47,7 +47,7 @@ export default {
      * @param {}
      * @return {Number} ratio 设备像素比
      */
-    getDevicePixelRatio() {
+    getDevicePixelRatio () {
       var mediaQuery;
       var is_firefox =
         navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -85,7 +85,7 @@ export default {
     },
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted () {
     var w = window.innerWidth;
     //var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio();
@@ -124,14 +124,34 @@ export default {
     //挂载引擎
     //生成墙壁
     World.add(engine.world, [
-      Bodies.rectangle(0, 0, 1600, 1, { isStatic: true }),
-      Bodies.rectangle(0, 0, 1, 1600, { isStatic: true }),
-      Bodies.rectangle(0, height * ratio, 1600, 1, { isStatic: true }),
-      Bodies.rectangle(width * ratio, 0, 1, 1600, { isStatic: true }),
+      Bodies.rectangle(0, 0, 1600, 1, {
+        isStatic: true, render: {
+          fillStyle: 'rgba(255, 255, 255, 0)',
+          strokeStyle: 'rgba(255, 255, 255, 0)',
+        }
+      }),
+      Bodies.rectangle(0, 0, 1, 1600, {
+        isStatic: true, render: {
+          fillStyle: 'rgba(255, 255, 255, 0)',
+          strokeStyle: 'rgba(255, 255, 255, 0)',
+        }
+      }),
+      Bodies.rectangle(0, height * ratio, 1600, 1, {
+        isStatic: true, render: {
+          fillStyle: 'rgba(255, 255, 255, 0)',
+          strokeStyle: 'rgba(255, 255, 255, 0)',
+        }
+      }),
+      Bodies.rectangle(width * ratio, 0, 1, 1600, {
+        isStatic: true, render: {
+          fillStyle: 'rgba(255, 255, 255, 0)',
+          strokeStyle: 'rgba(255, 255, 255, 0)',
+        }
+      }),
     ]);
     //生成正方体
     let that = this;
-    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function(x, y) {
+    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
       return Bodies.rectangle(
         x,
         y,
@@ -160,7 +180,7 @@ export default {
     //console.log(myCanvas.style.width);
     this.start(engine.world.gravity);
   },
-  destroyed() {
+  destroyed () {
     console.log(this.orienter);
     this.orienter.off();
   },
