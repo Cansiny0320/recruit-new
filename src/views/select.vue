@@ -3,19 +3,19 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1" @click="toDetail(0)">
+      <div class="card1" @click="toDetail(1)">
         <card1 :img="img.product"></card1>
       </div>
-      <div class="card2" @click="toDetail(1)">
+      <div class="card2" @click="toDetail(2)">
         <card2 :img="img.design"></card2>
       </div>
-      <div class="card3" @click="toDetail(2)">
+      <div class="card3" @click="toDetail(3)">
         <card3 :img="img.mobile"></card3>
       </div>
-      <div class="card4" @click="toDetail(3)">
+      <div class="card4" @click="toDetail(4)">
         <card4 :img="img.web"></card4>
       </div>
-      <div class="card5" @click="toDetail(4)">
+      <div class="card5" @click="toDetail(5)">
         <card5 :img="img.sre"></card5>
       </div>
     </div>
@@ -30,7 +30,7 @@ import card4 from "../components/card"
 import card5 from "../components/card"
 export default {
   components: { card1, card2, card3, card4, card5 },
-  data () {
+  data() {
     return {
       img: {
         product: {
@@ -67,7 +67,7 @@ export default {
     }
   },
   methods: {
-    toDetail (index) {
+    toDetail(index) {
       this.$router.push({
         path: '/detail',
         query: { index }
@@ -75,11 +75,11 @@ export default {
     }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
+  created() {
 
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
+  mounted() {
   },
 }
 </script>

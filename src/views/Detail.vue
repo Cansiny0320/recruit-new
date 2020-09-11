@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       swiperOptions: {
-
+        loop: true
       },
       mobile: [
         '良好的代码编写规范',
