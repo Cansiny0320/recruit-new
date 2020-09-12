@@ -11,7 +11,7 @@ import jump from '../utils/jump';
 import judgeClient from '../utils/judgeClient';
 export default {
   components: {},
-  data() {
+  data () {
     return {
       prelude_img1: 'prelude_img1',
       prelude_img2: 'prelude_img2',
@@ -22,7 +22,7 @@ export default {
     };
   },
   methods: {
-    jumpto() {
+    jumpto () {
       this.getGrant();
       console.log('onclick');
       console.log(this);
@@ -31,7 +31,7 @@ export default {
       }
       jump('/introduce', this);
     },
-    getGrant() {
+    getGrant () {
       if (this.is_ios()) {
         window.DeviceOrientationEvent.requestPermission().then(state => {
           switch (state) {
@@ -47,7 +47,7 @@ export default {
         });
       }
     },
-    is_ios() {
+    is_ios () {
       if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
         return true;
       } else {
@@ -56,14 +56,14 @@ export default {
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
+  created () {
     if (judgeClient() == 'ios') {
       this.prelude_img1 = 'prelude_img1_ios';
       this.prelude_img2 = 'prelude_img2_ios';
     }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted () {
     setTimeout(() => {
       this.change = false;
       // setTimeout(() => {
@@ -152,8 +152,8 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       height: 0px;
     }
     100% {
-      width: 75px;
-      height: 75px;
+      width: 50px;
+      height: 50px;
     }
   }
   @keyframes bot {
