@@ -17,7 +17,7 @@ export default {
     img: Object,
   },
   components: {},
-  data () {
+  data() {
     return {
       controlX: {},
       orienter: {},
@@ -29,9 +29,9 @@ export default {
      * @param {object} e 重力感应对象
      * @return {}
      */
-    start (e) {
+    start(e) {
       var o = new Orienter();
-      o.onOrient = function (obj) {
+      o.onOrient = function(obj) {
         let tofix = num => (num ? Math.abs(num) / num : 0);
         let GY = Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170 ? 0 : obj.b;
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g;
@@ -47,7 +47,7 @@ export default {
      * @param {}
      * @return {Number} ratio 设备像素比
      */
-    getDevicePixelRatio () {
+    getDevicePixelRatio() {
       var mediaQuery;
       var is_firefox =
         navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -85,12 +85,22 @@ export default {
     },
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
+  mounted() {
+    const AREA = 375 * 603; // 视觉稿面积
     var w = window.innerWidth;
-    //var h = window.innerHeight;
+    var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio();
     //console.log(ratio);
-    //console.log(w, h);
+    console.log(w, h);
+    console.log(`缩放比rate为${(w * h) / AREA}`);
+    console.log(`设备像素比为${ratio}`);
+    console.log(`设备像素比倒数为${1 / ratio}`);
+    let rate = (w * h) / AREA;
+    console.log(`转化比为${Math.pow(rate, 1 / ratio)}`);
+    let change =
+      rate < 1
+        ? 1 / Math.pow(rate, 1 / ratio)
+        : 1 / Math.pow(rate, ratio * 0.2);
     //Engine是引擎，Render是渲染器，World是表演环境，Bodies可以用来创建各种形状的物体。
     let box = this.$refs.matter;
 
@@ -125,33 +135,49 @@ export default {
     //生成墙壁
     World.add(engine.world, [
       Bodies.rectangle(0, 0, 1600, 1, {
-        isStatic: true, render: {
+        isStatic: true,
+        render: {
           fillStyle: 'rgba(255, 255, 255, 0)',
           strokeStyle: 'rgba(255, 255, 255, 0)',
-        }
+        },
       }),
       Bodies.rectangle(0, 0, 1, 1600, {
-        isStatic: true, render: {
+        isStatic: true,
+        render: {
           fillStyle: 'rgba(255, 255, 255, 0)',
           strokeStyle: 'rgba(255, 255, 255, 0)',
-        }
+        },
       }),
-      Bodies.rectangle(0, height * ratio, 1600, 1, {
-        isStatic: true, render: {
-          fillStyle: 'rgba(255, 255, 255, 0)',
-          strokeStyle: 'rgba(255, 255, 255, 0)',
-        }
-      }),
-      Bodies.rectangle(width * ratio, 0, 1, 1600, {
-        isStatic: true, render: {
-          fillStyle: 'rgba(255, 255, 255, 0)',
-          strokeStyle: 'rgba(255, 255, 255, 0)',
-        }
-      }),
+      Bodies.rectangle(
+        0,
+        height * (1 / Math.pow(rate, 1 / ratio)) * 2,
+        1600,
+        1,
+        {
+          isStatic: true,
+          render: {
+            fillStyle: 'rgba(255, 255, 255, 0)',
+            strokeStyle: 'rgba(255, 255, 255, 0)',
+          },
+        },
+      ),
+      Bodies.rectangle(
+        width * (1 / Math.pow(rate, 1 / ratio)) * 2,
+        0,
+        1,
+        1600,
+        {
+          isStatic: true,
+          render: {
+            fillStyle: 'rgba(255, 255, 255, 0)',
+            strokeStyle: 'rgba(255, 255, 255, 0)',
+          },
+        },
+      ),
     ]);
     //生成正方体
     let that = this;
-    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
+    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function(x, y) {
       return Bodies.rectangle(
         x,
         y,
@@ -174,13 +200,12 @@ export default {
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id];
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
-
-    myCanvas.width = myCanvas.width * ratio;
-    myCanvas.height = myCanvas.height * ratio;
-    //console.log(myCanvas.style.width);
+    myCanvas.width = myCanvas.width * ratio * change;
+    myCanvas.height = myCanvas.height * ratio * change;
+    console.log(1 / Math.pow(rate, 1 / ratio));
     this.start(engine.world.gravity);
   },
-  destroyed () {
+  destroyed() {
     console.log(this.orienter);
     this.orienter.off();
   },

@@ -2,74 +2,77 @@
 <template>
   <div class="prelude">
     <div :class="change ? prelude_img1 : prelude_img2" @click="jumpto"></div>
-    <div v-show="!change" class="hand"></div>
+    <div v-show="!change" :class="stop ? `hand` : `handstop`"></div>
   </div>
 </template>
 
 <script>
 import jump from '../utils/jump';
-import judgeClient from '../utils/judgeClient'
+import judgeClient from '../utils/judgeClient';
 export default {
   components: {},
-  data () {
+  data() {
     return {
       prelude_img1: 'prelude_img1',
       prelude_img2: 'prelude_img2',
       mask_after: 'mask_after',
       change: true,
       show: true,
+      stop: true,
     };
   },
   methods: {
-    jumpto () {
-      this.getGrant()
+    jumpto() {
+      this.getGrant();
       console.log('onclick');
       console.log(this);
       if (this.change == true) {
-        return
+        return;
       }
       jump('/introduce', this);
     },
-    getGrant () {
+    getGrant() {
       if (this.is_ios()) {
-        window.DeviceOrientationEvent.requestPermission()
-          .then(state => {
-            switch (state) {
-              case "granted":
-                break;
-              case "denied":
-                alert("你拒绝了使用陀螺仪");
-                break;
-              case "prompt":
-                alert("其他行为");
-                break;
-            }
-          });
+        window.DeviceOrientationEvent.requestPermission().then(state => {
+          switch (state) {
+            case 'granted':
+              break;
+            case 'denied':
+              alert('你拒绝了使用陀螺仪');
+              break;
+            case 'prompt':
+              alert('其他行为');
+              break;
+          }
+        });
       }
     },
-    is_ios () {
+    is_ios() {
       if (navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-        return true
+        return true;
       } else {
         return false;
       }
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
+  created() {
     if (judgeClient() == 'ios') {
-      this.prelude_img1 = 'prelude_img1_ios'
-      this.prelude_img2 = 'prelude_img2_ios'
+      this.prelude_img1 = 'prelude_img1_ios';
+      this.prelude_img2 = 'prelude_img2_ios';
     }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.change = false;
       // setTimeout(() => {
       //   this.show = false;
       // }, 2000);
-    }, 3000);
+      setTimeout(() => {
+        this.stop = false;
+      }, 1000);
+    }, 1500);
   },
 };
 </script>
@@ -80,9 +83,9 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
   @return ($min + random($max)) * $u;
 }
 .prelude {
-  width: 600px;
-  height: 400px;
-  margin-top: 375px;
+  width: 100vw;
+  height: 1206px;
+
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -91,11 +94,75 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     position: absolute;
     width: 78px;
     height: 63px;
-    animation: show 1.5s linear;
+    margin-top: 375px;
+    animation: show 1s linear;
     transform: translateX(32vw) translateY(37.333vw);
     background-image: url('../assets/images/loading/hand.png');
     background-size: cover;
     z-index: 100000;
+  }
+  .handstop {
+    position: absolute;
+    width: 78px;
+    height: 63px;
+    margin-top: 375px;
+    transform: translateX(32vw) translateY(37.333vw);
+    animation: bot 1s linear infinite;
+    background-image: url('../assets/images/loading/hand.png');
+    background-size: cover;
+    z-index: 100000;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      background: aliceblue;
+      opacity: 0.05;
+      border-radius: 50%;
+      animation: ripple1 1s linear infinite;
+      animation-delay: 2s;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      background: aliceblue;
+      opacity: 0.1;
+      border-radius: 50%;
+      animation: ripple2 1s linear infinite;
+      animation-delay: 2s;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+  @keyframes ripple1 {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    100% {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  @keyframes ripple2 {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    100% {
+      width: 75px;
+      height: 75px;
+    }
+  }
+  @keyframes bot {
+    0% {
+      transform: translateX(32vw) translateY(37.333vw) rotateZ(0deg);
+    }
+    100% {
+      transform: translateX(32vw) translateY(37.333vw) rotateZ(0deg);
+    }
   }
 
   @keyframes show {
@@ -107,6 +174,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     }
   }
   .prelude_img1_ios {
+    margin-top: 375px;
     position: relative;
     width: 488px;
     height: 223px;
@@ -147,7 +215,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     position: relative;
     width: 488px;
     height: 223px;
-
+    margin-top: 375px;
     background-image: url($img2);
     background-size: cover;
 
@@ -187,7 +255,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     z-index: 1000;
     background-image: url($img1);
     background-size: cover;
-
+    margin-top: 375px;
     &::before {
       position: absolute;
       width: 488px;
@@ -221,7 +289,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
     position: relative;
     width: 488px;
     height: 223px;
-
+    margin-top: 375px;
     background-image: url($img2);
     background-size: cover;
 
