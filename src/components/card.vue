@@ -6,6 +6,7 @@
       <div class="on"></div>
       <div class="tip"></div>
       <div class="clip"></div>
+      <div class="sign"></div>
     </div>
   </div>
 </template>
@@ -25,7 +26,7 @@ export default {
   },
   methods: {
     /**
-     * @description: 相应设备中重力，并在matter.js中的重力控制对象中做出反应
+     * @description: 感应设备中重力，并在matter.js中的重力控制对象中做出反应
      * @param {object} e 重力感应对象
      * @return {}
      */
@@ -84,7 +85,9 @@ export default {
       }
     },
   },
-  //生命周期 - 挂载完成（可以访问DOM元素）
+  /**
+   * @description: 建立基于matter.js的物理模型
+   */
   mounted() {
     const AREA = 375 * 603; // 视觉稿面积
     var w = window.innerWidth;
@@ -196,7 +199,7 @@ export default {
       );
     });
     World.add(world, [stack]);
-
+    //解决canvas的图片模糊问题
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id];
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
@@ -205,6 +208,9 @@ export default {
     console.log(1 / Math.pow(rate, 1 / ratio));
     this.start(engine.world.gravity);
   },
+  /**
+   * @description: 组件销毁时销毁重力感应事件
+   */
   destroyed() {
     console.log(this.orienter);
     this.orienter.off();
@@ -252,9 +258,11 @@ export default {
   position: absolute;
   width: 76px;
   height: 103px;
-  z-index: 1000;
+  z-index: 996;
   background-image: url('../assets/images/detail/图层 677@2x.png');
   background-size: cover;
   transform: translateX(130px) translateY(-220px);
+}
+.sign {
 }
 </style>

@@ -23,67 +23,64 @@
 </template>
 
 <script>
-import card1 from "../components/card"
-import card2 from "../components/card"
-import card3 from "../components/card"
-import card4 from "../components/card"
-import card5 from "../components/card"
+import card1 from '../components/card';
+import card2 from '../components/card';
+import card3 from '../components/card';
+import card4 from '../components/card';
+import card5 from '../components/card';
 export default {
   components: { card1, card2, card3, card4, card5 },
   data() {
     return {
       img: {
         product: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwjfS.png',
+          src: 'https://s1.ax1x.com/2020/09/12/waYqW8.png',
           width: 119.5,
           height: 198.5,
-          id: 0
+          id: 0,
         },
         design: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwxSg.png',
+          src: 'https://s1.ax1x.com/2020/09/12/waYXQg.png',
           width: 131,
           height: 191.5,
-          id: 1
+          id: 1,
         },
         mobile: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwzlQ.png',
+          src: 'https://s1.ax1x.com/2020/09/12/waYOSS.png',
           width: 145.5,
           height: 206.5,
-          id: 2
+          id: 2,
         },
         web: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwOFf.png',
+          src: 'https://s1.ax1x.com/2020/09/12/waYHFP.png',
           width: 133,
           height: 182.5,
-          id: 3
+          id: 3,
         },
         sre: {
-          src: 'https://s1.ax1x.com/2020/09/05/wVwXY8.png',
+          src: 'https://s1.ax1x.com/2020/09/12/waYbJf.png',
           width: 127.5,
           height: 162.5,
-          id: 4
+          id: 4,
         },
-      }
-    }
+      },
+    };
   },
   methods: {
     toDetail(index) {
       this.$router.push({
         path: '/detail',
-        query: { index }
-      })
-    }
+        query: { index },
+      });
+    },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
-
-  },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
-  },
-}
+  mounted() {},
+};
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 //塑料幕遮
 $mask: 'product/塑料质感@2x', 'design/FW_Plastik_Bags_08 拷贝@2x',
   'mobile/FW_Plastik_Bags_10@2x', 'web/FW_Plastik_Bags_08@2x', 'sre/塑料质感@2x';
@@ -97,6 +94,13 @@ $background: 'product/Overlay Effect - Change Opacity@2x',
 $tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
   'web/组 12_2@2x', 'sre/组 12_3@2x';
 
+$signW: '217', '162', '222', '214', '241';
+$signH: '132', '165', '134', '167', '78';
+$signX: '-10', '-60', '-20', '-20', '-20';
+$signY: '-135', '130', '130', '100', '160';
+
+$sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x',
+  'web/图层 682@2x', 'sre/图层 682_1@2x';
 .detail {
   width: 750px;
   height: 2008px;
@@ -142,6 +146,16 @@ $tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
               width: 347px;
               height: 506px;
               background-image: url('../assets/images/detail/#{nth($mask,$i)}.png');
+            }
+            .sign {
+              position: absolute;
+              width: #{nth($signW, $i)}px;
+              height: #{nth($signH, $i)}px;
+              background-image: url('../assets/images/detail/#{nth($sign, $i)}.png');
+              background-size: cover;
+              z-index: 997;
+              transform: translateX(#{nth($signX, $i)}px)
+                translateY(#{nth($signY, $i)}px);
             }
           }
         }
