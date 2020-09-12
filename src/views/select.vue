@@ -46,7 +46,7 @@ export default {
           id: 1,
         },
         mobile: {
-          src: 'https://s1.ax1x.com/2020/09/12/waYOSS.png',
+          src: 'https://s1.ax1x.com/2020/09/12/watx1O.png',
           width: 145.5,
           height: 206.5,
           id: 2,
