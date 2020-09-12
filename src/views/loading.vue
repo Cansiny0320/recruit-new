@@ -9,15 +9,14 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {};
   },
-  methods: {
-  },
+  methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () { },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () { },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
@@ -46,7 +45,7 @@ export default {
   }
   .loading_mask {
     width: 750px;
-    height: 1205px;
+    height: 100%;
     position: absolute;
     background-image: url('../assets/images/loading/O2@2x.png');
     background-size: cover;

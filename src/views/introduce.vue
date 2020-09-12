@@ -1,37 +1,39 @@
 <!-- 网校介绍页面 -->
 <template>
-  <div class="mask">
+  <div class="mask" @click="add">
     <img src="../assets/images/introduce/swiper.gif" class="gif" />
     <div class="introduce">
-      <div class="stickers" v-if="index >= 1">
-        <stickers1 :img="img[0].src"></stickers1>
-      </div>
-      <div class="stickers" v-if="index >= 2">
-        <stickers2 :img="img[1].src"></stickers2>
-      </div>
-      <div class="stickers" v-if="index >= 3">
-        <stickers3 :img="img[2].src"></stickers3>
-      </div>
-      <div class="stickers" v-if="index >= 4">
-        <stickers4 :img="img[3].src"></stickers4>
-      </div>
-      <div class="stickers" v-if="index >= 5">
-        <stickers5 :img="img[4].src"></stickers5>
-      </div>
-      <div class="stickers" v-if="index >= 6">
-        <stickers6 :img="img[5].src"></stickers6>
-      </div>
-      <div class="stickers" v-if="index >= 7">
-        <stickers7 :img="img[6].src"></stickers7>
-      </div>
-      <div class="stickers" v-if="index >= 8">
-        <stickers8 :img="img[7].src"></stickers8>
-      </div>
-      <div class="stickers" v-if="index >= 9">
-        <stickers9 :img="img[8].src"></stickers9>
-      </div>
-      <div class="stickers" v-if="index >= 10">
-        <stickers10 :img="img[9].src"></stickers10>
+      <div class="center">
+        <div class="stickers" v-if="index >= 1">
+          <stickers1 :img="img[0].src"></stickers1>
+        </div>
+        <div class="stickers" v-if="index >= 2">
+          <stickers2 :img="img[1].src"></stickers2>
+        </div>
+        <div class="stickers" v-if="index >= 3">
+          <stickers3 :img="img[2].src"></stickers3>
+        </div>
+        <div class="stickers" v-if="index >= 4">
+          <stickers4 :img="img[3].src"></stickers4>
+        </div>
+        <div class="stickers" v-if="index >= 5">
+          <stickers5 :img="img[4].src"></stickers5>
+        </div>
+        <div class="stickers" v-if="index >= 6">
+          <stickers6 :img="img[5].src"></stickers6>
+        </div>
+        <div class="stickers" v-if="index >= 7">
+          <stickers7 :img="img[6].src"></stickers7>
+        </div>
+        <div class="stickers" v-if="index >= 8">
+          <stickers8 :img="img[7].src"></stickers8>
+        </div>
+        <div class="stickers" v-if="index >= 9">
+          <stickers9 :img="img[8].src"></stickers9>
+        </div>
+        <div class="stickers" v-if="index >= 10">
+          <stickers10 :img="img[9].src"></stickers10>
+        </div>
       </div>
     </div>
   </div>
@@ -48,8 +50,7 @@ import stickers7 from '../components/stickers';
 import stickers8 from '../components/stickers';
 import stickers9 from '../components/stickers';
 import stickers10 from '../components/stickers';
-
-import jump from "../utils/jump"
+import jump from '../utils/jump';
 export default {
   components: {
     stickers1,
@@ -63,7 +64,7 @@ export default {
     stickers9,
     stickers10,
   },
-  data () {
+  data() {
     return {
       gif: true,
       hidden: true,
@@ -77,17 +78,22 @@ export default {
         { src: '组 7@2x.png' },
         { src: '组 8@2x.png' },
         { src: '组 9@2x.png' },
-        { src: '组 10@2x.png' }
+        { src: '组 10@2x.png' },
       ],
 
       index: 0,
     };
   },
-  mounted () {
+  methods: {
+    add: function() {
+      this.index++;
+    },
+  },
+  mounted() {
     /**
      * @description: 动态展现贴纸
-     * @param {} 
-     * @return {} 
+     * @param {}
+     * @return {}
      * @author: 林其星
      */
     setTimeout(() => {
@@ -96,7 +102,7 @@ export default {
         that.index++;
         if (this.index == 11) {
           clearInterval(Show);
-          jump("/select", this)
+          jump('/select', this);
         }
       }, 1000);
     }, 2000);
@@ -107,6 +113,9 @@ export default {
 .mask {
   height: 100%;
   width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   overflow: hidden;
 }
@@ -114,7 +123,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 750px;
-  animation: hidden 2s linear;
+  animation: hidden 3s linear;
   z-index: 10;
   opacity: 0;
 }
@@ -126,6 +135,13 @@ export default {
   100% {
     opacity: 0;
   }
+}
+.center {
+  position: relative;
+  height: 100vw;
+  width: 750px;
+  top: 50%;
+  transform: translateY(-88%);
 }
 .introduce {
   height: 100%;

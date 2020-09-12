@@ -1,7 +1,7 @@
 <!-- 前奏页面 -->
 <template>
-  <div class="prelude">
-    <div :class="change ? prelude_img1 : prelude_img2" @click="jumpto"></div>
+  <div class="prelude" @click="jumpto">
+    <div :class="change ? prelude_img1 : prelude_img2"></div>
     <div v-show="!change" :class="stop ? `hand` : `handstop`"></div>
   </div>
 </template>
@@ -120,7 +120,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       opacity: 0.05;
       border-radius: 50%;
       animation: ripple1 1s linear infinite;
-      animation-delay: 2s;
+      animation-delay: 1s;
       transform: translateX(-50%) translateY(-50%);
     }
     &::after {
@@ -132,7 +132,7 @@ $img2: '../assets/images/prelude/--e-Text-effects@2x.png';
       opacity: 0.1;
       border-radius: 50%;
       animation: ripple2 1s linear infinite;
-      animation-delay: 2s;
+      animation-delay: 1s;
       transform: translateX(-50%) translateY(-50%);
     }
   }

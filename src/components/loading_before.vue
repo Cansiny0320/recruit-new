@@ -1,11 +1,26 @@
 <!-- 加载前置动画 -->
 <template>
   <div class="loadingbefore">
-    <div :class="show ? '' : loading_tv" src="../assets/images/loading/Texteffects@2x.png"></div>
+    <div
+      :class="show ? '' : loading_tv"
+      src="../assets/images/loading/Texteffects@2x.png"
+    ></div>
     <div class="loading_txt">
-      <type1 :typetxt="loadingtxt[0].txt" :time="time" v-if="index == loadingtxt[0].id"></type1>
-      <type2 :typetxt="loadingtxt[1].txt" :time="time" v-if="index == loadingtxt[1].id"></type2>
-      <type3 :typetxt="loadingtxt[2].txt" :time="time" v-if="index == loadingtxt[2].id"></type3>
+      <type1
+        :typetxt="loadingtxt[0].txt"
+        :time="time"
+        v-if="index == loadingtxt[0].id"
+      ></type1>
+      <type2
+        :typetxt="loadingtxt[1].txt"
+        :time="time"
+        v-if="index == loadingtxt[1].id"
+      ></type2>
+      <type3
+        :typetxt="loadingtxt[2].txt"
+        :time="time"
+        v-if="index == loadingtxt[2].id"
+      ></type3>
     </div>
   </div>
 </template>
@@ -15,36 +30,39 @@ import type1 from '@components/type.vue';
 import type2 from '@components/type.vue';
 import type3 from '@components/type.vue';
 import jump from '../utils/jump';
-import judgeClient from "../utils/judgeClient"
+import judgeClient from '../utils/judgeClient';
 export default {
   components: { type1, type2, type3 },
-  data () {
+  data() {
     return {
       loadingtxt: [
         {
           txt: '20年前，互联网时代的大幕徐徐拉开，诞生了一个又一个神话',
           id: 0,
         },
-        { txt: '同时，一个名不见经传的小组织“红岩网校工作站“诞生。', id: 1 },
-        { txt: '今天，互联网蓬勃发展，深刻地融入在我们的生活中。', id: 2 },
+        { txt: '同时，一个名不见经传的小组织 “红岩网校工作站“诞生。', id: 1 },
+        {
+          txt: '今天，互联网蓬勃发展，深刻地融入在我们的生活中。',
+          id: 2,
+        },
       ],
       index: -1,
       time: 100,
       show: true,
-      loading_tv: 'loading_tv'
+      loading_tv: 'loading_tv',
     };
   },
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () {
+  created() {
     if (judgeClient() == 'ios') {
-      this.loading_tv = 'loading_tv_ios'
+      this.loading_tv = 'loading_tv_ios';
     } else {
-      this.loading_tv = 'loading_tv'
+      this.loading_tv = 'loading_tv';
     }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () {
+  mounted() {
     setTimeout(() => {
       this.show = false;
     }, 100);
@@ -137,6 +155,10 @@ export default {
   .loading_txt {
     height: 76px;
     width: 427px;
+    ::v-deep .type {
+      width: 410px;
+      word-break: break-all;
+    }
   }
   @function randomNum($max, $min: 0, $u: 1) {
     @return ($min + random() * $max) * $u;
