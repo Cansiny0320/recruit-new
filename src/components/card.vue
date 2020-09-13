@@ -90,8 +90,8 @@ export default {
    */
   mounted () {
     const AREA = 375 * 603; // 视觉稿面积
-    var w = window.innerWidth;
-    //var h = window.innerHeight;
+    let w = window.innerWidth;
+    let h = window.innerHeight;
     let ratio = this.getDevicePixelRatio();
     //console.log(ratio);
     //console.log(w, h);
