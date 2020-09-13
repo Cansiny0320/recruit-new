@@ -18,7 +18,7 @@ export default {
     img: Object,
   },
   components: {},
-  data() {
+  data () {
     return {
       controlX: {},
       orienter: {},
@@ -30,9 +30,9 @@ export default {
      * @param {object} e 重力感应对象
      * @return {}
      */
-    start(e) {
+    start (e) {
       var o = new Orienter();
-      o.onOrient = function(obj) {
+      o.onOrient = function (obj) {
         let tofix = num => (num ? Math.abs(num) / num : 0);
         let GY = Math.abs(obj.b) < 10 || Math.abs(obj.b) > 170 ? 0 : obj.b;
         let GX = Math.abs(obj.g) < 10 ? 0 : obj.g;
@@ -48,7 +48,7 @@ export default {
      * @param {}
      * @return {Number} ratio 设备像素比
      */
-    getDevicePixelRatio() {
+    getDevicePixelRatio () {
       var mediaQuery;
       var is_firefox =
         navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
@@ -88,18 +88,18 @@ export default {
   /**
    * @description: 建立基于matter.js的物理模型
    */
-  mounted() {
+  mounted () {
     const AREA = 375 * 603; // 视觉稿面积
     var w = window.innerWidth;
-    var h = window.innerHeight;
+    //var h = window.innerHeight;
     let ratio = this.getDevicePixelRatio();
     //console.log(ratio);
-    console.log(w, h);
-    console.log(`缩放比rate为${(w * h) / AREA}`);
-    console.log(`设备像素比为${ratio}`);
-    console.log(`设备像素比倒数为${1 / ratio}`);
+    //console.log(w, h);
+    //console.log(`缩放比rate为${(w * h) / AREA}`);
+    //console.log(`设备像素比为${ratio}`);
+    //console.log(`设备像素比倒数为${1 / ratio}`);
     let rate = (w * h) / AREA;
-    console.log(`转化比为${Math.pow(rate, 1 / ratio)}`);
+    //console.log(`转化比为${Math.pow(rate, 1 / ratio)}`);
     let change =
       rate < 1
         ? 1 / Math.pow(rate, 1 / ratio)
@@ -180,7 +180,7 @@ export default {
     ]);
     //生成正方体
     let that = this;
-    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function(x, y) {
+    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
       return Bodies.rectangle(
         x,
         y,
@@ -205,14 +205,14 @@ export default {
     myCanvas.style.height = myCanvas.height + 'px';
     myCanvas.width = myCanvas.width * ratio * change;
     myCanvas.height = myCanvas.height * ratio * change;
-    console.log(1 / Math.pow(rate, 1 / ratio));
+    //console.log(1 / Math.pow(rate, 1 / ratio));
     this.start(engine.world.gravity);
   },
   /**
    * @description: 组件销毁时销毁重力感应事件
    */
-  destroyed() {
-    console.log(this.orienter);
+  destroyed () {
+    //console.log(this.orienter);
     this.orienter.off();
   },
 };

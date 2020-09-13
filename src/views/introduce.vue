@@ -64,7 +64,7 @@ export default {
     stickers9,
     stickers10,
   },
-  data() {
+  data () {
     return {
       gif: true,
       hidden: true,
@@ -85,11 +85,11 @@ export default {
     };
   },
   methods: {
-    add: function() {
+    add: function () {
       this.index++;
     },
   },
-  mounted() {
+  mounted () {
     /**
      * @description: 动态展现贴纸
      * @param {}
@@ -100,7 +100,7 @@ export default {
       let that = this;
       let Show = setInterval(() => {
         that.index++;
-        if (this.index == 11) {
+        if (this.index >= 11) {
           clearInterval(Show);
           jump('/select', this);
         }
