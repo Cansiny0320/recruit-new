@@ -7,13 +7,24 @@
     <div class="bottom">
       <div class="item">
         <span>招新一群：1132961842</span>
-        <div class="copy" v-clipboard:copy="copy1"></div>
+        <div
+          class="copy"
+          v-clipboard:copy="copy1"
+          v-clipboard:success="success"
+          v-clipboard:error="error"
+        ></div>
       </div>
       <div class="item">
-        <span>招新二群：1132961842</span>
-        <div class="copy" v-clipboard:copy="copy2"></div>
+        <span>招新二群：965360013</span>
+        <div
+          class="copy"
+          v-clipboard:copy="copy2"
+          v-clipboard:success="success"
+          v-clipboard:error="error"
+        ></div>
       </div>
     </div>
+    <div class="toast" v-show="isShow">{{ toast }}</div>
   </div>
 </template>
 
@@ -22,9 +33,28 @@ export default {
   data() {
     return {
       copy1: '1132961842',
-      copy2: '1132961842'
+      copy2: '965360013',
+      isShow: false,
+      toast: '',
     }
   },
+  methods: {
+    success() {
+      this.$_showToast('复制成功');
+    },
+    error() {
+      this.$_showToast('复制失败 请手动复制');
+    },
+    $_showToast(tip) {
+      const showTime = 1000
+      this.toast = tip
+      this.isShow = true;
+      setTimeout(() => {
+        this.isShow = false
+        this.toast = ''
+      }, showTime)
+    }
+  }
 }
 </script>
 
@@ -73,6 +103,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    z-index: 30;
     .item {
       display: flex;
       font-size: 54px;
@@ -90,6 +121,16 @@ export default {
         margin-left: 30px;
       }
     }
+  }
+  .toast {
+    position: absolute;
+    bottom: 300px;
+    z-index: 999;
+    color: #fff;
+    font-size: 24px;
+    padding: 19px 32px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
   }
 }
 </style>
