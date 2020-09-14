@@ -88,8 +88,8 @@ export default {
     position: relative;
     z-index: 20;
     .img {
-      width: 491px;
-      height: 682px;
+      width: 512px;
+      height: 737px;
     }
   }
   .bottom {
