@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       copy1: '1132961842',
       copy2: '965360013',
@@ -39,13 +39,13 @@ export default {
     }
   },
   methods: {
-    success() {
+    success () {
       this.$_showToast('复制成功');
     },
-    error() {
+    error () {
       this.$_showToast('复制失败 请手动复制');
     },
-    $_showToast(tip) {
+    $_showToast (tip) {
       const showTime = 1000
       this.toast = tip
       this.isShow = true;
@@ -66,7 +66,7 @@ export default {
 .apply {
   width: 100%;
   height: 100%;
-  background-image: url('../assets/images/introduce/背景@2x.png');
+  background-image: url('../assets/images/introduce/background-grid.png');
   background-size: 100%;
   background-repeat: no-repeat;
   position: relative;

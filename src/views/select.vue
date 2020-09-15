@@ -3,34 +3,35 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="card1" @click="toDetail(1)">
-        <card1 :img="img.product"></card1>
+      <div class="product" @click="toDetail(1)">
+        <product :img="img.product"></product>
       </div>
-      <div class="card2" @click="toDetail(2)">
-        <card2 :img="img.design"></card2>
+      <div class="design" @click="toDetail(2)">
+        <design :img="img.design"></design>
       </div>
-      <div class="card3" @click="toDetail(3)">
-        <card3 :img="img.mobile"></card3>
+      <div class="mobile" @click="toDetail(3)">
+        <mobile :img="img.mobile"></mobile>
       </div>
-      <div class="card4" @click="toDetail(4)">
-        <card4 :img="img.web"></card4>
+      <div class="web" @click="toDetail(4)">
+        <web :img="img.web"></web>
       </div>
-      <div class="card5" @click="toDetail(5)">
-        <card5 :img="img.sre"></card5>
+      <div class="sre" @click="toDetail(5)">
+        <sre :img="img.sre"></sre>
       </div>
+      <div class="QR-code"></div>
     </div>
   </div>
 </template>
 
 <script>
-import card1 from '../components/card';
-import card2 from '../components/card';
-import card3 from '../components/card';
-import card4 from '../components/card';
-import card5 from '../components/card';
+import product from '../components/card';
+import design from '../components/card';
+import mobile from '../components/card';
+import web from '../components/card';
+import sre from '../components/card';
 export default {
-  components: { card1, card2, card3, card4, card5 },
-  data() {
+  components: { product, design, mobile, web, sre },
+  data () {
     return {
       img: {
         product: {
@@ -67,7 +68,7 @@ export default {
     };
   },
   methods: {
-    toDetail(index) {
+    toDetail (index) {
       this.$router.push({
         path: '/detail',
         query: { index },
@@ -75,12 +76,14 @@ export default {
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created () { },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
+  mounted () { },
 };
 </script>
 <style lang="scss" scoped>
+//部门
+$department: 'product', 'design', 'mobile', 'web', 'sre';
 //塑料幕遮
 $mask: 'product/塑料质感@2x', 'design/FW_Plastik_Bags_08 拷贝@2x',
   'mobile/FW_Plastik_Bags_10@2x', 'web/FW_Plastik_Bags_08@2x', 'sre/塑料质感@2x';
@@ -105,7 +108,7 @@ $sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x'
   width: 750px;
   height: 2008px;
   overflow: hidden;
-  background-image: url('../assets/images/introduce/背景@2x.png');
+  background-image: url('../assets/images/introduce/background-grid.png');
   background-size: cover;
   .top {
     width: 912px;
@@ -123,7 +126,7 @@ $sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x'
     flex-wrap: wrap;
 
     @for $i from 1 through 5 {
-      .card#{$i} {
+      .#{nth($department,$i)} {
         width: 347px;
         height: 506px;
         margin-left: 20px;
@@ -161,6 +164,14 @@ $sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x'
         }
       }
     }
+  }
+  .QR-code {
+    width: 339px;
+    height: 380px;
+    margin-top: 70px;
+    margin-left: 25px;
+    background-image: url('../assets/images/detail/Sticker.png');
+    background-size: cover;
   }
   @keyframes rotate {
     0% {

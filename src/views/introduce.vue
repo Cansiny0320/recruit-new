@@ -28,13 +28,8 @@
         <div class="stickers" v-if="index >= 8">
           <stickers8 :img="img[7].src"></stickers8>
         </div>
-        <div class="stickers" v-if="index >= 9">
-          <stickers9 :img="img[8].src"></stickers9>
-        </div>
-        <div class="stickers" v-if="index >= 10">
-          <stickers10 :img="img[9].src"></stickers10>
-        </div>
       </div>
+      <div class="background"></div>
     </div>
   </div>
 </template>
@@ -48,8 +43,6 @@ import stickers5 from '../components/stickers';
 import stickers6 from '../components/stickers';
 import stickers7 from '../components/stickers';
 import stickers8 from '../components/stickers';
-import stickers9 from '../components/stickers';
-import stickers10 from '../components/stickers';
 import jump from '../utils/jump';
 export default {
   components: {
@@ -61,24 +54,20 @@ export default {
     stickers6,
     stickers7,
     stickers8,
-    stickers9,
-    stickers10,
   },
   data () {
     return {
       gif: true,
       hidden: true,
       img: [
-        { src: '组 1@2x.png' },
-        { src: '组 2@2x.png' },
-        { src: '组 3@2x.png' },
-        { src: '组 4@2x.png' },
-        { src: '组 5@2x.png' },
-        { src: '组 6@2x.png' },
-        { src: '组 7@2x.png' },
-        { src: '组 8@2x.png' },
-        { src: '组 9@2x.png' },
-        { src: '组 10@2x.png' },
+        { src: 'introduce1.png' },
+        { src: 'introduce2.png' },
+        { src: 'introduce3.png' },
+        { src: 'introduce4.png' },
+        { src: 'introduce5.png' },
+        { src: 'introduce6.png' },
+        { src: 'introduce7.png' },
+        { src: 'introduce8.png' },
       ],
 
       index: 0,
@@ -100,7 +89,7 @@ export default {
       let that = this;
       let Show = setInterval(() => {
         that.index++;
-        if (this.index >= 11) {
+        if (this.index >= 9) {
           clearInterval(Show);
           jump('/select', this);
         }
@@ -110,6 +99,10 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$stickersW: '800', '1124', '859', '971', '952', '857', '1106', '851';
+$stickersH: '226', '460', '267', '174', '318', '419', '371', '266';
+$stickersX: '-45', '-120', '-150', '-50', '-126', '150', '-120', '163';
+$stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
 .mask {
   height: 100%;
   width: 750px;
@@ -148,118 +141,31 @@ export default {
   width: 750px;
   position: relative;
   overflow: hidden;
-  background-image: url('../assets/images/introduce/背景@2x.png');
-  background-size: cover;
   animation: onshow 1s linear;
-  .stickers:nth-child(1) {
-    position: absolute;
-    width: 800px;
-    height: 226px;
-    margin-top: 10px;
-    transform: translateX(-41.5px);
-    ::v-deep .stickers .stickers_img {
-      width: 800px;
-      height: 226px;
+
+  @for $i from 1 through 8 {
+    .stickers:nth-child(#{$i}) {
+      position: absolute;
+      width: #{nth($stickersW, $i)}px;
+      height: #{nth($stickersH, $i)}px;
+      transform: translateX(#{nth($stickersX, $i)}px)
+        translateY(#{nth($stickersY, $i)}px);
+      ::v-deep .stickers .stickers_img {
+        width: #{nth($stickersW, $i)}px;
+        height: #{nth($stickersH, $i)}px;
+      }
+      transition: all 1s;
     }
   }
-  .stickers:nth-child(2) {
+
+  .background {
     position: absolute;
-    width: 1114px;
-    height: 460px;
-    margin-top: 116px;
-    transform: translateX(-120px);
-    ::v-deep .stickers .stickers_img {
-      width: 1114px;
-      height: 460px;
-    }
-  }
-  .stickers:nth-child(3) {
-    position: absolute;
-    margin-top: 348px;
-    width: 859px;
-    height: 267px;
-    transform: translateX(-165.5px);
-    ::v-deep .stickers .stickers_img {
-      width: 859px;
-      height: 267px;
-    }
-  }
-  .stickers:nth-child(4) {
-    position: absolute;
-    width: 971px;
-    height: 174px;
-    margin-top: 567px;
-    transform: translateX(-50.5px);
-    ::v-deep .stickers .stickers_img {
-      width: 971px;
-      height: 174px;
-    }
-  }
-  .stickers:nth-child(5) {
-    position: absolute;
-    width: 952px;
-    height: 318px;
-    margin-top: 590px;
-    transform: translateX(-131px);
-    ::v-deep .stickers .stickers_img {
-      width: 952px;
-      height: 318px;
-    }
-  }
-  .stickers:nth-child(6) {
-    position: absolute;
+    height: 1301px;
     width: 750px;
-    height: 371px;
-    margin-top: 736px;
-    transform: translateX(-135px);
-    ::v-deep .stickers .stickers_img {
-      width: 1106px;
-      height: 371px;
-    }
-  }
-  .stickers:nth-child(7) {
-    position: absolute;
-    width: 818px;
-    height: 297px;
-    margin-top: 909px;
-    transform: translateX(119.5px);
-    ::v-deep .stickers .stickers_img {
-      width: 818px;
-      height: 297px;
-    }
-  }
-  .stickers:nth-child(8) {
-    position: absolute;
-    width: 591px;
-    height: 447px;
-    margin-top: 304px;
-    transform: translateX(-62.5px);
-    ::v-deep .stickers .stickers_img {
-      width: 591px;
-      height: 447px;
-    }
-  }
-  .stickers:nth-child(9) {
-    position: absolute;
-    width: 643px;
-    height: 390px;
-    margin-top: 262px;
-    transform: translateX(145px);
-    ::v-deep .stickers .stickers_img {
-      width: 857px;
-      height: 419px;
-    }
-  }
-  .stickers:nth-child(10) {
-    position: absolute;
-    width: 620px;
-    height: 399px;
-    margin-top: 450px;
-    transform: translateX(#{(130)}px);
-    ::v-deep .stickers .stickers_img {
-      width: 620px;
-      height: 399px;
-    }
+    transform: translateY(-800px);
+    background-image: url('../assets/images/introduce/background.png');
+    background-size: cover;
+    z-index: -10;
   }
 }
 

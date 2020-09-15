@@ -188,7 +188,7 @@ export default {
         that.img.height * ratio + 40,
         {
           friction: 0.1,
-          restitution: 0,
+          restitution: 0.2,
           frictionAir: 0.15,
           render: {
             sprite: {
@@ -259,7 +259,7 @@ export default {
   width: 76px;
   height: 103px;
   z-index: 996;
-  background-image: url('../assets/images/detail/图层 677@2x.png');
+  background-image: url('../assets/images/detail/677@2x.png');
   background-size: cover;
   transform: translateX(130px) translateY(-220px);
 }
