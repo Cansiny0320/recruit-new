@@ -184,8 +184,8 @@ export default {
       return Bodies.rectangle(
         x,
         y,
-        that.img.width * ratio,
-        that.img.height * ratio,
+        that.img.width * ratio * 1.06,
+        that.img.height * ratio * 1.06,
         {
           friction: 0.1,
           restitution: 0.2,

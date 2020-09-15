@@ -160,7 +160,7 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
 
   .background {
     position: absolute;
-    height: 1301px;
+    height: 1900px;
     width: 750px;
     transform: translateY(-800px);
     background-image: url('../assets/images/introduce/background.png');
