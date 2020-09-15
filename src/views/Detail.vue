@@ -330,8 +330,8 @@ export default {
       background-image: url('../assets/images/intro-detail/sre/plus.png');
     }
     .logo {
-      width: calc(540px * 1.1);
-      height: calc(551px * 1.1);
+      width: calc(540px * 1.2);
+      height: calc(551px * 1.2);
       top: 256px;
       background-image: url('../assets/images/intro-detail/sre/logo.png');
       transform: translateX(-42%);
