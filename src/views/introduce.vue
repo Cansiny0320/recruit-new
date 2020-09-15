@@ -29,8 +29,8 @@
           <stickers8 :img="img[7].src"></stickers8>
         </div>
       </div>
-      <div class="background"></div>
     </div>
+    <div class="background"></div>
   </div>
 </template>
 
@@ -157,18 +157,16 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
       transition: all 1s;
     }
   }
-
-  .background {
-    position: absolute;
-    height: 1900px;
-    width: 750px;
-    transform: translateY(-800px);
-    background-image: url('../assets/images/introduce/background.png');
-    background-size: cover;
-    z-index: -10;
-  }
 }
-
+.background {
+  position: absolute;
+  height: 100%;
+  width: 750px;
+  transform: translateY(-25px);
+  background-image: url('../assets/images/introduce/background.png');
+  background-size: cover;
+  z-index: -10;
+}
 @keyframes onshow {
   0% {
     opacity: 1;
