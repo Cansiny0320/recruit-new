@@ -93,7 +93,7 @@ export default {
     let w = window.innerWidth;
     let h = window.innerHeight;
     let ratio = this.getDevicePixelRatio();
-    //console.log(ratio);
+    console.log(ratio);
     //console.log(w, h);
     //console.log(`缩放比rate为${(w * h) / AREA}`);
     //console.log(`设备像素比为${ratio}`);
