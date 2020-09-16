@@ -18,7 +18,7 @@
       <div class="sre" @click="toDetail(5)">
         <sre :img="img.sre"></sre>
       </div>
-      <img class="QR-code" />
+      <img class="QR-code" src="../assets/images/detail/Sticker.png" />
     </div>
   </div>
 </template>

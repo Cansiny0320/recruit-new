@@ -156,6 +156,27 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
       }
       transition: all 1s;
     }
+
+    .stickers:nth-child(5) {
+      ::v-deep .stickers .stickers_img {
+        animation: show5 0.5s linear;
+      }
+    }
+    .stickers:nth-child(6) {
+      ::v-deep .stickers .stickers_img {
+        animation: show6 0.5s linear;
+      }
+    }
+    .stickers:nth-child(7) {
+      ::v-deep .stickers .stickers_img {
+        animation: show7 0.5s linear;
+      }
+    }
+    .stickers:nth-child(8) {
+      ::v-deep .stickers .stickers_img {
+        animation: show8 0.5s linear;
+      }
+    }
   }
 }
 .background {
@@ -175,6 +196,38 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+@keyframes show5 {
+  0% {
+    transform: scale(2) translateX(200px);
+  }
+  100% {
+    transform: scale(1) translateX(0px);
+  }
+}
+@keyframes show6 {
+  0% {
+    transform: scale(2) translateX(-150px);
+  }
+  100% {
+    transform: scale(1) translateX(0px);
+  }
+}
+@keyframes show7 {
+  0% {
+    transform: scale(2) rotateZ(-60deg) translateY(-150px) translateX(400px);
+  }
+  100% {
+    transform: scale(1) rotateZ(0deg) translateY(0px) translateX(0px);
+  }
+}
+@keyframes show8 {
+  0% {
+    transform: scale(2) translateX(-100px);
+  }
+  100% {
+    transform: scale(1) translateX(0px);
   }
 }
 </style>
