@@ -88,7 +88,7 @@ export default {
     setTimeout(() => {
       let that = this;
       let Show = setInterval(() => {
-        that.index = 1;
+        that.index++;
         if (this.index >= 9) {
           clearInterval(Show);
           jump('/select', this);
