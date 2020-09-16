@@ -47,9 +47,9 @@ export default {
           id: 1,
         },
         mobile: {
-          src: 'https://s1.ax1x.com/2020/09/12/watx1O.png',
-          width: 107,
-          height: 156.5,
+          src: 'https://s1.ax1x.com/2020/09/16/w2iG6J.png',
+          width: 128.5,
+          height: 188,
           id: 2,
         },
         web: {

@@ -185,7 +185,7 @@ export default {
         x,
         y,
         that.img.width * 2 * 1.1 + 30,
-        that.img.height * 2 * 1.1 + 30,
+        that.img.height * 2 * 1.1 + 40,
         {
           friction: 0.1,
           restitution: 0.2,
@@ -199,6 +199,7 @@ export default {
       );
     });
     World.add(world, [stack]);
+
     //解决canvas的图片模糊问题
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id];
     myCanvas.style.width = myCanvas.width + 'px';
