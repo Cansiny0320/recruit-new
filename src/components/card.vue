@@ -153,7 +153,7 @@ export default {
       }),
       Bodies.rectangle(
         0,
-        height * (1 / Math.pow(rate, 1 / ratio)) * 2,
+        height * (1 / Math.pow(rate, 1 / 2)) * 2,
         1600,
         1,
         {
@@ -165,7 +165,7 @@ export default {
         },
       ),
       Bodies.rectangle(
-        width * (1 / Math.pow(rate, 1 / ratio)) * 2,
+        width * (1 / Math.pow(rate, 1 / 2)) * 2,
         0,
         1,
         1600,
@@ -184,8 +184,8 @@ export default {
       return Bodies.rectangle(
         x,
         y,
-        that.img.width * ratio * 1.07,
-        that.img.height * ratio * 1.07,
+        that.img.width * 2 * 1.1 + 30,
+        that.img.height * 2 * 1.1 + 30,
         {
           friction: 0.1,
           restitution: 0.2,
@@ -203,8 +203,8 @@ export default {
     let myCanvas = document.getElementsByTagName('canvas')[this.img.id];
     myCanvas.style.width = myCanvas.width + 'px';
     myCanvas.style.height = myCanvas.height + 'px';
-    myCanvas.width = myCanvas.width * ratio * change;
-    myCanvas.height = myCanvas.height * ratio * change;
+    myCanvas.width = myCanvas.width * 2 * change;
+    myCanvas.height = myCanvas.height * 2 * change;
     //console.log(1 / Math.pow(rate, 1 / ratio));
     this.start(engine.world.gravity);
   },
