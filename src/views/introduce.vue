@@ -5,28 +5,28 @@
     <div class="introduce">
       <div class="center">
         <div class="stickers" v-if="index >= 1">
-          <stickers1 :img="img[0].src"></stickers1>
+          <stickers1 :img="img[0].src" :time="times[0]"></stickers1>
         </div>
         <div class="stickers" v-if="index >= 2">
-          <stickers2 :img="img[1].src"></stickers2>
+          <stickers2 :img="img[1].src" :time="times[1]"></stickers2>
         </div>
         <div class="stickers" v-if="index >= 3">
-          <stickers3 :img="img[2].src"></stickers3>
+          <stickers3 :img="img[2].src" :time="times[2]"></stickers3>
         </div>
         <div class="stickers" v-if="index >= 4">
-          <stickers4 :img="img[3].src"></stickers4>
+          <stickers4 :img="img[3].src" :time="times[3]"></stickers4>
         </div>
         <div class="stickers" v-if="index >= 5">
-          <stickers5 :img="img[4].src"></stickers5>
+          <stickers5 :img="img[4].src" :time="times[4]"></stickers5>
         </div>
         <div class="stickers" v-if="index >= 6">
-          <stickers6 :img="img[5].src"></stickers6>
+          <stickers6 :img="img[5].src" :time="times[5]"></stickers6>
         </div>
         <div class="stickers" v-if="index >= 7">
-          <stickers7 :img="img[6].src"></stickers7>
+          <stickers7 :img="img[6].src" :time="times[6]"></stickers7>
         </div>
         <div class="stickers" v-if="index >= 8">
-          <stickers8 :img="img[7].src"></stickers8>
+          <stickers8 :img="img[7].src" :time="times[7]"></stickers8>
         </div>
       </div>
     </div>
@@ -69,7 +69,7 @@ export default {
         { src: 'introduce7.png' },
         { src: 'introduce8.png' },
       ],
-
+      times: [700, 700, 1000, 1000, 1000, 1000, 1100, 1500, 5000],
       index: 0,
     };
   },
@@ -85,15 +85,17 @@ export default {
      * @return {}
      * @author: 林其星
      */
-    setTimeout(() => {
+
+    let start = setTimeout(() => {
       let that = this;
       let Show = setInterval(() => {
         that.index++;
-        if (this.index >= 9) {
+        if (that.index >= 10) {
           clearInterval(Show);
+          clearTimeout(start)
           jump('/select', this);
         }
-      }, 1000);
+      }, that.times[that.index]);
     }, 2000);
   },
 };
@@ -169,12 +171,12 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
     }
     .stickers:nth-child(7) {
       ::v-deep .stickers .stickers_img {
-        animation: show7 1s linear;
+        animation: show7 1.1s linear;
       }
     }
     .stickers:nth-child(8) {
       ::v-deep .stickers .stickers_img {
-        animation: show8 1s linear;
+        animation: show8 1.1s linear;
       }
     }
   }

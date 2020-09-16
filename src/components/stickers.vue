@@ -10,8 +10,7 @@
 export default {
   props: {
     img: String,
-    width: String,
-    height: String
+    time: Number
   },
   components: {},
   data () {
@@ -26,11 +25,11 @@ export default {
   mounted () {
     setTimeout(() => {
       this.show = false;
-    }, 1000);
+    }, this.time);
     setTimeout(() => {
       this.$refs.audio.play();
-      this.$refs.audio.volume = 0.4
-    }, 500);
+      this.$refs.audio.volume = 0.3
+    }, this.time);
   },
 };
 </script>
