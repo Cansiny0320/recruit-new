@@ -1,4 +1,4 @@
-<!-- 加载工具 -->
+<!-- 预加载工具 -->
 <template>
   <div class="load">
     <img :src="require(`../assets/images/introduce/introduce1.png`) " />

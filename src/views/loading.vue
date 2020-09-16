@@ -3,20 +3,26 @@
   <div class="loading">
     <router-view></router-view>
     <!--遮幕-->
+    <div class="hidden">
+      <load></load>
+    </div>
+
     <div class="loading_mask"></div>
   </div>
 </template>
 
 <script>
+import load from "../components/load.vue"
 export default {
-  data() {
+  data () {
     return {};
   },
+  components: { load },
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created () { },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
+  mounted () { },
 };
 </script>
 <style lang="scss" scoped>
@@ -50,6 +56,10 @@ export default {
     background-image: url('../assets/images/loading/O2@2x.png');
     background-size: cover;
     z-index: 99;
+  }
+  .hidden {
+    position: absolute;
+    top: 200%;
   }
 }
 </style>
