@@ -159,22 +159,22 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
 
     .stickers:nth-child(5) {
       ::v-deep .stickers .stickers_img {
-        animation: show5 0.5s linear;
+        animation: show5 1s linear;
       }
     }
     .stickers:nth-child(6) {
       ::v-deep .stickers .stickers_img {
-        animation: show6 0.5s linear;
+        animation: show6 1s linear;
       }
     }
     .stickers:nth-child(7) {
       ::v-deep .stickers .stickers_img {
-        animation: show7 0.5s linear;
+        animation: show7 1s linear;
       }
     }
     .stickers:nth-child(8) {
       ::v-deep .stickers .stickers_img {
-        animation: show8 0.5s linear;
+        animation: show8 1s linear;
       }
     }
   }
