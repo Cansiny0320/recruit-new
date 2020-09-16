@@ -1,26 +1,11 @@
 <!-- 加载前置动画 -->
 <template>
   <div class="loadingbefore">
-    <div
-      :class="show ? '' : loading_tv"
-      src="../assets/images/loading/Texteffects@2x.png"
-    ></div>
+    <div :class="show ? '' : loading_tv" src="../assets/images/loading/Texteffects@2x.png"></div>
     <div class="loading_txt">
-      <type1
-        :typetxt="loadingtxt[0].txt"
-        :time="time"
-        v-if="index == loadingtxt[0].id"
-      ></type1>
-      <type2
-        :typetxt="loadingtxt[1].txt"
-        :time="time"
-        v-if="index == loadingtxt[1].id"
-      ></type2>
-      <type3
-        :typetxt="loadingtxt[2].txt"
-        :time="time"
-        v-if="index == loadingtxt[2].id"
-      ></type3>
+      <type1 :typetxt="loadingtxt[0].txt" :time="time" v-if="index == loadingtxt[0].id"></type1>
+      <type2 :typetxt="loadingtxt[1].txt" :time="time" v-if="index == loadingtxt[1].id"></type2>
+      <type3 :typetxt="loadingtxt[2].txt" :time="time" v-if="index == loadingtxt[2].id"></type3>
     </div>
   </div>
 </template>
@@ -33,7 +18,7 @@ import jump from '../utils/jump';
 import judgeClient from '../utils/judgeClient';
 export default {
   components: { type1, type2, type3 },
-  data() {
+  data () {
     return {
       loadingtxt: [
         {
@@ -42,19 +27,19 @@ export default {
         },
         { txt: '同时，一个名不见经传的小组织 “红岩网校工作站“诞生。', id: 1 },
         {
-          txt: '今天，互联网蓬勃发展，深刻地融入在我们的生活中。',
+          txt: '今天，互联网蓬勃发展，深刻地重塑了我们的生活，重新塑造了这个世界的面貌。',
           id: 2,
         },
       ],
       index: -1,
-      time: 100,
+      time: 120,
       show: true,
       loading_tv: 'loading_tv',
     };
   },
   methods: {},
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
+  created () {
     if (judgeClient() == 'ios') {
       this.loading_tv = 'loading_tv_ios';
     } else {
@@ -62,7 +47,7 @@ export default {
     }
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
+  mounted () {
     setTimeout(() => {
       this.show = false;
     }, 100);
