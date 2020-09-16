@@ -161,10 +161,11 @@ $icon: 'product/icon', 'design/icon', 'mobile/icon', 'web/icon', 'sre/icon';
     }
   }
   .QR-code {
-    width: 339px;
+    position: relative;
+    width: 360px;
     height: 380px;
-    margin-top: 70px;
-    margin-left: 25px;
+    top: 70px;
+    left: -10px;
     background-image: url('../assets/images/detail/Sticker.png');
     background-size: cover;
   }
