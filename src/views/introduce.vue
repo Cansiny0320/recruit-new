@@ -88,7 +88,7 @@ export default {
     setTimeout(() => {
       let that = this;
       let Show = setInterval(() => {
-        that.index++;
+        that.index = 1;
         if (this.index >= 9) {
           clearInterval(Show);
           jump('/select', this);
@@ -181,7 +181,7 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
 }
 .background {
   position: absolute;
-  height: 100%;
+  height: 1900px;
   width: 750px;
   transform: translateY(-25px);
   background-image: url('../assets/images/introduce/background.png');
