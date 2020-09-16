@@ -242,15 +242,12 @@ export default {
   width: 360px;
   height: 520px;
   z-index: 999;
-  background-image: url('../assets/images/detail/design/FW_Plastik_Bags_08 拷贝@2x.png');
-  background-size: cover;
   position: absolute;
 }
 .tip {
   width: 87px;
   height: 87px;
   z-index: 998;
-  background-image: url('../assets/images/detail/product/组 12@2x.png');
   background-size: cover;
   position: absolute;
   transform: translateX(103px) translateY(176px);
@@ -260,7 +257,6 @@ export default {
   width: 76px;
   height: 103px;
   z-index: 996;
-  background-image: url('../assets/images/detail/677@2x.png');
   background-size: cover;
   transform: translateX(130px) translateY(-220px);
 }

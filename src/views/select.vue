@@ -85,25 +85,20 @@ export default {
 //部门
 $department: 'product', 'design', 'mobile', 'web', 'sre';
 //塑料幕遮
-$mask: 'product/塑料质感@2x', 'design/FW_Plastik_Bags_08 拷贝@2x',
-  'mobile/FW_Plastik_Bags_10@2x', 'web/FW_Plastik_Bags_08@2x', 'sre/塑料质感@2x';
+$mask: 'product/plastic', 'design/plastic', 'mobile/plastic', 'web/plastic',
+  'sre/plastic';
 //卡片背景
-$background: 'product/Overlay Effect - Change Opacity@2x',
-  'design/Overlay Effect - Change Opacity_1@2x',
-  'mobile/Overlay Effect - Change Opacity_2@2x',
-  'web/Overlay Effect - Change Opacity 拷贝@2x',
-  'sre/Overlay Effect - Change Opacity_3@2x';
+$background: 'product/background', 'design/background', 'mobile/background',
+  'web/background', 'sre/background';
 //右下角标签
-$tip: 'product/组 12@2x', 'design/组 11@2x', 'mobile/MOBILE@2x',
-  'web/组 12_2@2x', 'sre/组 12_3@2x';
+$tip: 'product/sign', 'design/sign', 'mobile/sign', 'web/sign', 'sre/sign';
 
 $signW: '217', '162', '222', '214', '241';
 $signH: '132', '165', '134', '167', '78';
 $signX: '-10', '-60', '-20', '-20', '-20';
 $signY: '-135', '130', '130', '100', '160';
 
-$sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x',
-  'web/图层 682@2x', 'sre/图层 682_1@2x';
+$icon: 'product/icon', 'design/icon', 'mobile/icon', 'web/icon', 'sre/icon';
 .detail {
   width: 750px;
   height: 2008px;
@@ -114,7 +109,7 @@ $sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x'
     width: 912px;
     height: 275px;
     position: relative;
-    background-image: url('../assets/images/detail/纯图形标 (2)@2x.png');
+    background-image: url('../assets/images/detail/top.png');
     background-size: cover;
     top: -60px;
     left: -100px;
@@ -154,7 +149,7 @@ $sign: 'product/部门帖子@2x', 'design/图层_682@2x', 'mobile/图层_682@2x'
               position: absolute;
               width: #{nth($signW, $i)}px;
               height: #{nth($signH, $i)}px;
-              background-image: url('../assets/images/detail/#{nth($sign, $i)}.png');
+              background-image: url('../assets/images/detail/#{nth($icon, $i)}.png');
               background-size: cover;
               z-index: 997;
               transform: translateX(#{nth($signX, $i)}px)
