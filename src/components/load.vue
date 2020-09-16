@@ -1,14 +1,20 @@
 <!-- 加载工具 -->
 <template>
-  <div class="load"></div>
+  <div class="load">
+    <img :src="require(`../assets/images/introduce/introduce1.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce2.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce3.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce4.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce5.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce6.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce7.png`) " />
+    <img :src="require(`../assets/images/introduce/introduce8.png`) " />
+  </div>
 </template>
 
 <script>
 
 export default {
-  props: {
-    imgs: Array
-  },
   components: {},
   data () {
     return {
@@ -17,10 +23,6 @@ export default {
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted () {
-    this.imgs.forEach(e => {
-      let img = new Image()
-      img.src = e
-    })
   },
 }
 </script>
