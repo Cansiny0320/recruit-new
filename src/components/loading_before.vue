@@ -32,7 +32,7 @@ export default {
         },
       ],
       index: -1,
-      time: 120,
+      time: 100,
       show: true,
       loading_tv: 'loading_tv',
     };
