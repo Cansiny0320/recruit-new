@@ -28,7 +28,7 @@ export default {
     }, this.time);
     setTimeout(() => {
       this.$refs.audio.play();
-      this.$refs.audio.volume = 0.3
+      this.$refs.audio.volume = 0.2
     }, this.time);
   },
 };
@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .stickers {
   .stickers_img {
-    animation: show 0.5s linear;
+    animation: show 1s linear;
     background-size: cover;
   }
 }

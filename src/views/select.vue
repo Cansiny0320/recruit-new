@@ -4,19 +4,19 @@
     <div class="top"></div>
     <div class="cards">
       <div class="product" @click="toDetail(1)">
-        <product :img="img.product"></product>
+        <productCard :img="img.product"></productCard>
       </div>
       <div class="design" @click="toDetail(2)">
-        <design :img="img.design"></design>
+        <designCard :img="img.design"></designCard>
       </div>
       <div class="mobile" @click="toDetail(3)">
-        <mobile :img="img.mobile"></mobile>
+        <mobileCard :img="img.mobile"></mobileCard>
       </div>
       <div class="web" @click="toDetail(4)">
-        <web :img="img.web"></web>
+        <webCard :img="img.web"></webCard>
       </div>
       <div class="sre" @click="toDetail(5)">
-        <sre :img="img.sre"></sre>
+        <sreCard :img="img.sre"></sreCard>
       </div>
       <img class="QR-code" src="../assets/images/detail/Sticker.png" />
     </div>
@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import product from '../components/card';
-import design from '../components/card';
-import mobile from '../components/card';
-import web from '../components/card';
-import sre from '../components/card';
+import productCard from '../components/card';
+import designCard from '../components/card';
+import mobileCard from '../components/card';
+import webCard from '../components/card';
+import sreCard from '../components/card';
 export default {
-  components: { product, design, mobile, web, sre },
+  components: { productCard, designCard, mobileCard, webCard, sreCard },
   data () {
     return {
       img: {

@@ -69,7 +69,7 @@ export default {
         { src: 'introduce7.png' },
         { src: 'introduce8.png' },
       ],
-      times: [700, 700, 1000, 1000, 1000, 1000, 1100, 1500, 5000],
+      times: [1000, 1000, 1000, 1000, 1000, 2000, 2100, 2500],
       index: 0,
     };
   },
