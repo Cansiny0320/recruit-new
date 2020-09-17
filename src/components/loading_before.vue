@@ -60,7 +60,7 @@ export default {
         }, 4000);
       }
       console.log(this.index);
-    }, 3000);
+    }, 3500);
   },
 };
 </script>
