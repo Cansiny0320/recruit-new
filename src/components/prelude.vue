@@ -24,7 +24,7 @@ export default {
   methods: {
     jumpto () {
       this.getGrant();
-      console.log('onclick');
+      //console.log('onclick');
       console.log(this);
       if (this.change == true) {
         return;
