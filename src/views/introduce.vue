@@ -98,7 +98,7 @@ export default {
       }, that.times[that.index]);
     }, 2000);
   },
-};
+}; 
 </script>
 <style lang="scss" scoped>
 $stickersW: '800', '1124', '859', '971', '952', '857', '1106', '851';
@@ -166,17 +166,17 @@ $stickersY: '40', '130', '360', '578', '605', '270', '750', '927';
     }
     .stickers:nth-child(6) {
       ::v-deep .stickers .stickers_img {
-        animation: show6 1s linear;
+        animation: show6 2s linear;
       }
     }
     .stickers:nth-child(7) {
       ::v-deep .stickers .stickers_img {
-        animation: show7 1.1s linear;
+        animation: show7 2.1s linear;
       }
     }
     .stickers:nth-child(8) {
       ::v-deep .stickers .stickers_img {
-        animation: show8 1.1s linear;
+        animation: show8 2.5s linear;
       }
     }
   }
