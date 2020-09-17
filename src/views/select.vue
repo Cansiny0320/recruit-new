@@ -3,19 +3,19 @@
   <div class="detail">
     <div class="top"></div>
     <div class="cards">
-      <div class="product" @click="toDetail(1)">
+      <div class="productCard" @click="toDetail(1)">
         <productCard :img="img.product"></productCard>
       </div>
-      <div class="design" @click="toDetail(2)">
+      <div class="designCard" @click="toDetail(2)">
         <designCard :img="img.design"></designCard>
       </div>
-      <div class="mobile" @click="toDetail(3)">
+      <div class="mobileCard" @click="toDetail(3)">
         <mobileCard :img="img.mobile"></mobileCard>
       </div>
-      <div class="web" @click="toDetail(4)">
+      <div class="webCard" @click="toDetail(4)">
         <webCard :img="img.web"></webCard>
       </div>
-      <div class="sre" @click="toDetail(5)">
+      <div class="sreCard" @click="toDetail(5)">
         <sreCard :img="img.sre"></sreCard>
       </div>
       <img class="QR-code" src="../assets/images/detail/Sticker.png" />
@@ -83,7 +83,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 //部门
-$department: 'product', 'design', 'mobile', 'web', 'sre';
+$department: 'productCard', 'designCard', 'mobileCard', 'webCard', 'sreCard';
 //塑料幕遮
 $mask: 'product/plastic', 'design/plastic', 'mobile/plastic', 'web/plastic',
   'sre/plastic';
