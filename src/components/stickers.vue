@@ -29,7 +29,7 @@ export default {
     setTimeout(() => {
       this.$refs.audio.play();
       this.$refs.audio.volume = 0.2
-    }, this.time);
+    }, this.time + 300);
   },
 };
 </script>
