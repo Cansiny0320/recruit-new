@@ -93,7 +93,10 @@ export default {
         if (that.index >= 10) {
           clearInterval(Show);
           clearTimeout(start)
-          jump('/select', this);
+          setTimeout(() => {
+            jump('/select', this);
+          }, 1000)
+
         }
       }, that.times[that.index]);
     }, 2000);
