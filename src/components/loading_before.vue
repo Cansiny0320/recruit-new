@@ -25,7 +25,7 @@ export default {
           txt: '20年前，互联网时代的大幕徐徐拉开，诞生了一个又一个神话',
           id: 0,
         },
-        { txt: '同时，一个名不见经传的小组织 “红岩网校工作站“诞生。', id: 1 },
+        { txt: '同时，一个名不见经传的小组织 “红岩网校工作站”诞生。', id: 1 },
         {
           txt: '今天，互联网蓬勃发展，深刻地重塑了我们的生活，重新塑造了这个世界的面貌。',
           id: 2,
@@ -35,6 +35,7 @@ export default {
       time: 100,
       show: true,
       loading_tv: 'loading_tv',
+      times: [3500, 3400, 4300]
     };
   },
   methods: {},
@@ -60,7 +61,7 @@ export default {
         }, 4000);
       }
       console.log(this.index);
-    }, 3500);
+    }, this.times[this.index + 1]);
   },
 };
 </script>
