@@ -21,6 +21,7 @@ export default {
   },
   mounted () {
     let type = this.GetRequest().type
+    console.log(type);
     this.isIosApp = Boolean(type == 'banner')
   },
   methods: {
