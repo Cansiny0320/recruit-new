@@ -27,7 +27,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .loading {
-  width: 750px;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
@@ -50,7 +50,7 @@ export default {
     width: 427px;
   }
   .loading_mask {
-    width: 750px;
+    width: 100%;
     height: 100%;
     position: absolute;
     background-image: url('../assets/images/loading/O2@2x.png');

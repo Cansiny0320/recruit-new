@@ -9,6 +9,11 @@
     <img :src="require(`../assets/images/introduce/introduce6.png`) " />
     <img :src="require(`../assets/images/introduce/introduce7.png`) " />
     <img :src="require(`../assets/images/introduce/introduce8.png`) " />
+    <img :src="require(`../assets/images/intro-detail/design/apply.png`) " />
+    <img :src="require(`../assets/images/intro-detail/product/apply.png`) " />
+    <img :src="require(`../assets/images/intro-detail/sre/apply.png`) " />
+    <img :src="require(`../assets/images/intro-detail/web/apply.png`) " />
+    <img :src="require(`../assets/images/intro-detail/mobile/apply.png`) " />
   </div>
 </template>
 
