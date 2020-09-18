@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import judgeClient from './utils/judgeClient'
 // import VConsole from 'vconsole';
 
 // const isDebug = true;
@@ -20,7 +21,7 @@ export default {
     }
   },
   mounted () {
-    this.isIosApp = Boolean(window.location.href == 'https://wx.redrock.team/game/recruit-new-2020/#/?type=banner')
+    this.isIosApp = Boolean(window.location.href == 'https://wx.redrock.team/game/recruit-new-2020/#/?type=banner' && judgeClient() == 'ios')
   },
 
 };
