@@ -21,6 +21,8 @@ export default {
     }
   },
   mounted () {
+    console.log(window.location.href == 'https://wx.redrock.team/game/recruit-new-2020/#/?type=banner');
+    console.log(judgeClient() == 'ios');
     this.isIosApp = Boolean(window.location.href == 'https://wx.redrock.team/game/recruit-new-2020/#/?type=banner' && judgeClient() == 'ios')
     console.log(this.isIosApp);
   },
