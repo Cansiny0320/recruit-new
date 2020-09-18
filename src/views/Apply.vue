@@ -103,7 +103,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    z-index: 30;
+    z-index: 15;
     .item {
       display: flex;
       font-size: 54px;

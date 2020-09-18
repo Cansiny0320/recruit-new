@@ -58,7 +58,7 @@ export default {
         clearInterval(loading);
         setTimeout(() => {
           jump('/prelude', this);
-        }, 4000);
+        }, 5000);
       }
       console.log(this.index);
     }, this.times[this.index + 1]);
