@@ -20,8 +20,7 @@ export default {
     }
   },
   mounted () {
-    console.log(location.search);
-    console.log(this.GetRequest());
+    console.log(window.location.href);
     let type = this.GetRequest().type
     console.log(type);
     this.isIosApp = Boolean(type == 'banner')
