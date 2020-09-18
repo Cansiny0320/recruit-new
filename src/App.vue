@@ -35,6 +35,6 @@ export default {
 }
 .app_ios {
   width: 100%;
-  height: 95vh;
+  height: 80vh;
 }
 </style>
