@@ -35,34 +35,44 @@ export default {
     return {
       img: {
         product: {
-          src: 'https://s1.ax1x.com/2020/09/12/waYqW8.png',
+          src: 'https://s1.ax1x.com/2020/09/19/wIfRCn.png',
           width: 110.5,
           height: 170.5,
           id: 0,
+          translateX: 30,
+          translateY: 60,
         },
         design: {
           src: 'https://s1.ax1x.com/2020/09/12/waYXQg.png',
           width: 131,
           height: 132.5,
           id: 1,
+          translateX: 20,
+          translateY: 70,
         },
         mobile: {
           src: 'https://s1.ax1x.com/2020/09/16/w2YAOA.png',
           width: 111.5,
           height: 163,
           id: 2,
+          translateX: 30,
+          translateY: 50,
         },
         web: {
           src: 'https://s1.ax1x.com/2020/09/12/waYHFP.png',
           width: 126.5,
           height: 128.5,
           id: 3,
+          translateX: 20,
+          translateY: 50,
         },
         sre: {
           src: 'https://s1.ax1x.com/2020/09/12/waYbJf.png',
           width: 114,
           height: 129.5,
           id: 4,
+          translateX: 20,
+          translateY: 90,
         },
       },
     };
@@ -76,9 +86,11 @@ export default {
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created () { },
+  created () {
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted () { },
+  mounted () {
+  },
 };
 </script>
 <style lang="scss" scoped>

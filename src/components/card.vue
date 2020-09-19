@@ -89,6 +89,8 @@ export default {
    * @description: 建立基于matter.js的物理模型
    */
   mounted () {
+
+    console.log('this store' + this.$store.state.isIosApp);
     const AREA = 375 * 603; // 视觉稿面积
     let w = window.innerWidth;
     let h = window.innerHeight;
@@ -180,10 +182,13 @@ export default {
     ]);
     //生成正方体
     let that = this;
-    var stack = Composites.stack(30, 0, 1, 1, 0, 0, function (x, y) {
+    let translateX = this.$store.state.isIosApp ? this.img.translateX : 30;
+    let translateY = this.$store.state.isIosApp ? this.img.translateY : 0;
+    console.log(translateX, this.img.translateY);
+    var stack = Composites.stack(translateX, translateY, 1, 1, 0, 0, function () {
       return Bodies.rectangle(
-        x,
-        y,
+        translateX,
+        translateY,
         that.img.width * 2 * 1.1 + 30,
         that.img.height * 2 * 1.1 + 40,
         {
@@ -207,14 +212,21 @@ export default {
     myCanvas.width = myCanvas.width * 2 * change;
     myCanvas.height = myCanvas.height * 2 * change;
     //console.log(1 / Math.pow(rate, 1 / ratio));
-    this.start(engine.world.gravity);
+    if (this.$store.state.isIosApp) {
+      this.start(engine.world.gravity);
+    } else {
+      this.controlX.x = 0;
+      this.controlX.y = 0;
+    }
   },
   /**
    * @description: 组件销毁时销毁重力感应事件
    */
   destroyed () {
     //console.log(this.orienter);
-    this.orienter.off();
+    if (!this.$store.state.isIosApp) {
+      this.orienter.off();
+    }
   },
 };
 </script>

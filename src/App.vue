@@ -25,6 +25,8 @@ export default {
     console.log(judgeClient() == 'ios');
     this.isIosApp = Boolean(window.location.href == 'https://wx.redrock.team/game/recruit-new-2020/#/?type=banner' && judgeClient() == 'ios')
     console.log(this.isIosApp);
+    this.$store.state.isIosApp = this.isIosApp;
+    console.log('store' + this.$store.state.isIosApp);
   },
 
 };
