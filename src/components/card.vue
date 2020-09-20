@@ -212,7 +212,7 @@ export default {
     myCanvas.width = myCanvas.width * 2 * change;
     myCanvas.height = myCanvas.height * 2 * change;
     //console.log(1 / Math.pow(rate, 1 / ratio));
-    if (this.$store.state.isIosApp) {
+    if (!this.$store.state.isIosApp) {
       this.start(engine.world.gravity);
     } else {
       this.controlX.x = 0;
