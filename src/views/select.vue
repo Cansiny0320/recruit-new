@@ -36,11 +36,11 @@ export default {
       img: {
         product: {
           src: 'https://s1.ax1x.com/2020/09/19/wIfRCn.png',
-          width: 110.5,
-          height: 170.5,
+          width: 99.5,
+          height: 153.5,
           id: 0,
           translateX: 30,
-          translateY: 60,
+          translateY: 70,
         },
         design: {
           src: 'https://s1.ax1x.com/2020/09/12/waYXQg.png',
