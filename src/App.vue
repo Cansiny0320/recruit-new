@@ -1,10 +1,11 @@
 <template>
-  <div id="app" :class="isIosApp?`app_ios`:`others`">
+  <div id="app" :class="isIosApp ? `app_ios` : `others`">
     <router-view />
   </div>
 </template>
 
 <script>
+console.log("join us");
 import judgeClient from './utils/judgeClient'
 // import VConsole from 'vconsole';
 
