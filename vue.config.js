@@ -6,8 +6,7 @@ function resolve(dir) {
 module.exports = {
   productionSourceMap: false,
   outputDir: 'build',
-  publicPath:
-    process.env.NODE_ENV === 'production' ? '/game/recruit-new-2020/' : './',
+  publicPath: process.env.NODE_ENV === 'production' ? '/recruit-new/' : './',
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
