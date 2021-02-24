@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-image: redrock-fe
-variables:
-  REPO_NAME: recruit-new-2020
-
-stages:
-  - setup
-  - build
-=======
 variables:
   REPO_NAME: recruit-new
 
@@ -14,7 +5,6 @@ stages:
   - setup
   - compile
   - imagebuild
->>>>>>> dev
   - deploy
 
 prepare:
@@ -32,14 +22,9 @@ prepare:
     changes:
       - package-lock.json
 
-<<<<<<< HEAD
-build:
-  stage: build
-=======
 compile_dev:
   image: reg.redrock.team/base/redrock-fe-compiler:latest
   stage: compile
->>>>>>> dev
   tags:
     - redrock-fe
   cache:
@@ -53,26 +38,6 @@ compile_dev:
     expire_in: 3 days
     paths:
       - build
-<<<<<<< HEAD
-
-deploy_dev:
-  stage: deploy
-  when: manual
-  tags:
-    - redrock-fe
-  script:
-    - tar -C build -cf dist.tar .
-    - curl -F data=@dist.tar -X POST http://202.202.43.234/rrapi/deploy/node/$REPO_NAME?stage=$CI_JOB_NAME
-
-deploy_prod:
-  stage: deploy
-  when: manual
-  tags:
-    - redrock-fe
-  script:
-    - tar -C build -cf dist.tar .
-    - curl -F data=@dist.tar -X POST http://202.202.43.234/rrapi/deploy/node/$REPO_NAME?stage=$CI_JOB_NAME
-=======
   only:
     - dev
 
@@ -158,4 +123,3 @@ deploy_prod:
     url: https://$NAMESPACE.redrock.team/$REPO_NAME
   only:
     - master
->>>>>>> dev
